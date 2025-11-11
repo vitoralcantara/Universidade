@@ -1,0 +1,177 @@
+(*Questão 1*)
+
+
+let fatorial_f (n:int) =
+	if n<0 then invalid_arg "fatorial"
+else
+	let fator = ref 1 in
+	for i=n downto 1 do 
+	fator:= !fator * i
+done;
+	print_int (!fator);;
+
+_________--__________--_____
+
+let fatorial_w (n:int) =
+if n<0 then invalid_arg "fatorial"
+	else
+	let fator = ref 1 and i= ref 1
+in
+	while !i<=n do
+	fator := !fator * !i;
+	i:= !i + 1 	
+	done;
+print_int (!fator);;
+
+_________--____________--__________
+
+(*Questão 2*)
+
+
+
+let fib (n: int) = 
+let fib1 = ref 1 in 
+let fib2 = ref 1 in 
+let fib3 = ref 0 in 
+
+if n<0 then invalid_arg "fib" 
+else 
+for i = 1 to n do 
+
+fib3 := !fib1 + !fib2; 
+fib1 := !fib2;   
+fib2 := !fib3; 
+done; 
+!fib1 ;;
+
+
+
+
+let fib (n:int) =
+
+let fib1 = ref 1 in
+let fib2 = ref 1 in
+let fib3 = ref 0 in
+	if n<0 then invalid_arg "fib" else
+let i = ref 1 in
+while !i<=n do
+
+	fib3 := !fib1 + !fib2;
+	fib1 := !fib2;
+	fib2 := !fib3;
+	i := !i + 1;
+done;
+!fib1 ;;
+
+
+_______________________---
+(*Questão 3*)
+
+
+let s (n:int) =
+	if n<0 then (invalid_arg "s");
+	let result = ref 1 and i= ref 0 in
+	begin
+	while !i<n do
+	result := (3 * !result) + 2;
+	i:= !i + 1
+done;
+!result
+end
+
+
+(*for*)
+
+let s (n:int) =
+if n<0 then (invalid_arg "s");
+let result = ref 1 in  
+begin 
+for i= 0 to (n-1) do
+   result := (2 * !result) +3
+done;
+!result
+end	
+
+
+
+
+_________------
+
+(*Questão 4 *)
+
+let primo (n:int) =
+	if n<2 then (invalid_arg "primo");
+let result = ref true and factor = ref 2 in
+begin
+	while !factor * !factor <=n do
+if n mod !factor == then result := false;
+factor := !factor + 1 
+done;
+!result
+end
+
+
+
+let primo (n:int) =
+	if n<2 then (invalid_arg "primo");
+let result = ref true and factor= ref 2 in
+begin
+	
+
+
+
+(*Questão 5*)
+
+let potencia (n:int) (p:int) =
+	if (p<0) then (invalid_arg "potencia");
+let result = ref 1 and i = ref 1 in
+begin
+	while !i<=p do
+result := !result * n ;
+i:= !i + 1
+done;
+!result
+end
+
+
+(*Questão 6 MDC*)
+
+let mdc (n:int) (m:int) =
+if n<1 or m<1 then (invalid_arg "mdc");
+let min = if n<m then ref n else ref m and
+    max = if n<m then ref m else ref n in 
+begin
+	while !max mod !min <> 0 do
+let tmp = min in
+   begin
+min:= !max mod !min;
+max:= !tmp
+end
+	done;
+!min
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+pronto tux ai vai...
+(*Questao 1*)
+
+(*a*)
+
+type lista_int = Vertice of int * lista_int | Nulo ;;
+
+(*lista Utilizada*)
+
+let x = Vertice(1,Vertice ( 2,Vertice(3,Nulo)));;
+
+(*b*)
+
+let vazio l =
+l = Nulo;;
+
+(*let rec list_int l =
+match l with
+Empty->true
+|_ -> false ;;
+*)
+
+(*c*)
+
+let insert n l =
+match l with
+Nulo -> Vertice (n , Nulo)
+|Vertice (a , rest ) -> Vertice( n ,Vertice (a,rest) );;
+
+(*d*)
+
+let rec insert2 n l = match l with
+Nulo -> Vertice(n,Nulo) |
+Vertice (a,rest) -> Vertice(a,(insert2 n rest));;
+
+(*e*)
+
+let retira_ini l =
+match l with
+Nulo -> Nulo
+|Vertice (a,rest) -> rest;;
+
+(*f*)
+
+let rec retira_fin l =
+match l with
+Nulo -> Nulo
+| Vertice (a,rest) -> Vertice(a,(retira_fin l));;
+
+
+
+
+
+
+let hanoi n =
+let rec
+hanoi' k init dest temp =
+if k = 0
+then ""
+else (hanoi' (k-1) init temp dest) ^
+"Mover de " ^ (string_of_int init) ^ " para " ^ (string_of_int dest) ^ "\n" ^
+(hanoi' (k-1) temp dest init)
+in
+print_string (hanoi' n 1 3 2)
+
+
+
+
+
+
+
+
+(*ai vai carol a questao (retirar o ultimo elemento dsa lista*)
+
+let rec retira_fin l =
+match l with
+Nulo -> Nulo
+| Vertice (a,rest) -> Vertice(a,(retira_fin l));;
+xeru

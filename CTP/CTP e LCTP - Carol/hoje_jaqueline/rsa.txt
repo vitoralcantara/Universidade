@@ -1,0 +1,4 @@
+RSA 
+
+	Criado por tres matematicos é um algorimtmo de encriptaçao que se baseia na utilizaçao de numeros primos para a criaçao de chaves publicas e privada.
+	O processo em si é puramente matematico se 

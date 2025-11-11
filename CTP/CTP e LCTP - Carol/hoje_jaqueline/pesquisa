@@ -1,0 +1,144 @@
+﻿Colaboração: Daniel Darlen
+
+Encaminhar uma mensagem de forma segura é uma preocupação que remonta aos primeiros estrategistas que se têm notícia, na Grécia Antiga.
+
+Houve época em que soldados tinham mensagens escritas em seu couro cabeludo como estratégia para transpassar uma informação pelas linhas inimigas, bastando chegar ao seu destino e ter sua cabeça raspada.
+
+Na Segunda Guerra Mundial, a Alemanha dispunha de um intrincado sistema de informações criptografadas. A base de todo esse sistema era uma máquina eletro-mecânica conhecida como enigma, semelhante à apresentada na figura, capaz de gerar mensagens criptografadas com enorme facilidade.
+
+A preocupação com a guarda das informações é a base da Criptografia, essencial para o tráfego de informações, especialmente nos dias atuais.
+O algoritmo RSA
+
+Um dos algoritmos mais seguros de encriptação de informações atuais originou-se dos estudos de Ronald Rivest, Adi Shamir e Leonard Adleman, um trio de Matemáticos brilhantes que mudaram a história da Criptografia.
+
+O princípio do algoritmo é construir chaves públicas e privadas utilizando números primos.
+
+Uma chave é uma informação restrita que controla toda a operação dos algoritmos de criptografia. No processo de codificação uma chave é quem dita a transformação do texto puro (original) em um texto criptografado.
+
+Chave Privada
+    É uma informação pessoal que permanece em posse da pessoa - não publicável.
+
+Chave Pública
+    Informação associada a uma pessoa que é distribuída a todos. 
+
+Uma analogia amplamente conhecida no meio acadêmico é a transmissão de mensagens entre Alice e Bob.
+
+Alice e Bob são personagens fictícios que precisam trocar mensagens seguras sem interceptação. O algoritmo RSA permite essa troca segura de mensagens pela utilização de chaves públicas e privadas:
+
+   1. Alice cria seu par de chaves (uma pública e outra privada) e envia sua chave pública para todos, inclusive Bob;
+   2. Bob escreve sua mensagem para Alice. Após escrita, Bob faz a cifragem do texto final com a chave pública de Alice, gerando um texto criptografado;
+   3. Alice recebe o texto criptografado de Bob e faz a decifragem utilizando a sua chave privada. 
+
+O procedimento é realizado com sucesso porque somente a chave privada de Alice é capaz de decifrar um texto criptografado com a sua chave pública.
+
+É importante destacar que se aplicarmos a chave pública de Alice sobre o texto critografado não teremos a mensagem original de Bob. Dessa forma, mesmo que a mensagem seja interceptada é impossível decifrá-la sem a chave privada de Alice.
+Funcionamento
+
+Conforme mencionado, o algoritmo RSA é baseado na construção de chaves públicas e privadas utilizando números primos. Inicialmente devem ser escolhidos dois números primos quaisquer P e Q. Quanto maior o número escolhido mais seguro será o algoritmo.
+
+A título de exemplificação, serão escolhidos números primos pequenos, para permitir um acompanhamento de todo o processo de cifragem e decifragem.
+
+    * P = 17
+    * Q = 11
+
+      A seguir são calculados dois novos números N e Z de acordo com os números P e Q escolhidos: 
+
+    * N = P * Q
+    * Z = (P - 1) * (Q - 1) 
+
+No caso obtêm-se como resultado:
+
+    * N = 17 * 11 = 187
+    * Z = 16 * 10 = 160 
+
+Agora define-se um número D que tenha a propriedade de ser primo em relação à Z. No caso, opta-se pela escolha:
+
+    * D = 7 
+
+De posse desses números começa o processo de criação das chaves públicas e privadas. É necessário encontrar um número E que satisfaça a seguinte propriedade:
+
+    * (E * D) mod Z = 1 
+
+Se forem feitos os testes com 1, 2, 3... teremos:
+
+    * E = 1 => (1 * 7) mod 160 = 7
+    * E = 2 => (2 * 7) mod 160 = 14
+    * E = 3 => (3 * 7) mod 160 = 21
+    * ...
+    * E = 23 => (23 * 7) mod 160 = 1
+    * ...
+    * E = 183 => (183 * 7) mod 160 = 1
+    * ...
+    * E = 343 => (343 * 7) mod 160 = 1
+    * ...
+    * E = 503 => (503 * 7) mod 160 = 1
+    * ...
+
+      Logo até o momento os números 23, 183, 343, 503 satisfazem a propriedade indicada.
+
+      Para efeito de simplificação de cálculos, será tomado como referência:
+
+    * E = 23. 
+
+Com esse processo definem-se as chaves de encriptação e desencriptação.
+
+    * para encriptar: utilizar E e N - esse par de números será utilizado como chave pública. 
+
+    * para desencriptar: utilizar D e N - esse par de números utilizado como chave privada. 
+
+As equações são:
+
+    * TEXTO CRIPTOGRAFADO = (TEXTO ORIGINAL ^ E) mod N 
+
+    * TEXTO ORIGINAL = (TEXTO CRIPTOGRAFADO ^ D) mod N 
+
+Caso prático para o exemplo
+
+Seja a necessidade de se encaminhar uma mensagem bem curta de forma criptografada, como o número 4 por exemplo, tendo por base as chaves aqui estabelecidas.
+
+Para criptografar:
+
+    * TEXTO ORIGINAL = 4
+
+    * TEXTO CRIPTOGRAFADO = (4 ^ 23) mod 39
+    * TEXTO CRIPTOGRAFADO = 70.368.744.177.664 mod 39
+    * TEXTO CRIPTOGRAFADO = 64 
+
+Para desencriptar:
+
+    * TEXTO RECEBIDO = 64
+
+    * TEXTO ORIGINAL = (64 ^ 7) mod 39 <{BR}>
+    * TEXTO ORIGINAL = 4.398.046.511.104 mod 39
+    * TEXTO ORIGINAL = 4 
+
+A questão das escolhas dos números primos envolvidos é fundamental para o algoritmo. Por essa razão escolhem-se números primos gigantescos para garantir que a chave seja inquebrável.
+
+Assim como o exemplo apresentado, existem outras combinações que podem ser feitas rapidamente para confirmação, sem que se exija uma aplicação especial para os cálculos envolvidos. 
+
+
+A utilização de certificados digitais
+Dra. Andréa Aranha Greco
+Dra. Andréa Aranha Greco,
+Consultora Jurídica
+BankBoston
+
+A certificação digital tem por objetivo conferir segurança no envio e troca de informações através de meios eletrônicos. A adoção da chamada "criptografia assimétrica", como ferramenta necessária para obtenção da segurança das transações eletrônicas, tem o condão de conferir ao documento eletrônico duas qualidades essenciais para que o mesmo possa ser aceito como meio de prova: a autenticidade e a integridade.
+
+A utilização do sistema de chaves pública e privada, como ferramenta desta nova forma de tecnologia da segurança,
+permite que a assinatura digital do usuário seja decifrada sem erros, conferindo a presunção de que indivíduo que gerou a assinatura
+
+Dra. Andréa Aranha Greco Consultora jurídica BankBoston
+digital tinha a correspondente chave privada em seu poder (autenticidade), bem como que o documento eletrônico não sofreu alterações em seu conteúdo posteriormente a sua assinatura (integridade).
+
+Neste cenário, a utilização do certificado eletrônico tem conferido atualmente às relações jurídicas, celebradas eletronicamente, atributos de segurança que permitem ao usuário operar através de meios eletrônicos com mais confiança.
+
+Com a edição da MP 2200, que instituiu a Infra Estrutura de Chaves Públicas Brasileira - ICP Brasil, a prática de utilização de certificados digitais tornou-se usual e, portanto, um fator importante para a segurança das transaçôes eletrônicas.
+
+A expectativa quanto a certeza de integridade do conteúdo daquilo que é enviado eletronicamente, além da confidencialidade das informações que o sistema de chaves públicas e privadas, corroborado pela Infra-Estrutura de Chaves Públicas do Brasil (ICP-Brasil), provê àqueles que dela se utilizam, nos documentos enviados por meio eletrônico, tem confirmado que a utilização dos certificados digitais é um indício de prática de segurança do documento digital e, consequentemente, um atributo de validade jurídica deste documento.
+
+Conclui-se, pois, que a modalidade de contratação eletrônica cresce a cada dia no Brasil, suscitando grandes dúvidas, que aos poucos têm sido discutidas e expandidas pelos operadores do direito e de tecnologia da informação, mas, ainda assim, seria necessária certa dose de legislação para regulamentar esta nova modalidade negocial, objetivando conferir maior garantia jurídica às partes contratantes, atendendo, assim, o princípio da estabilidade da ordem jurídica.
+
+
+Porém, enquanto esta matéria não encontra seu pleno arcabouço legislativo, entendemos que o fator incremental para que as transações eletrônicas sejam consideradas válidas e aceitas, seja o caráter de segurança que devem se revestir, e, para isto, as ferramentas tecnológicas atualmente existentes, como o certificado digital por exemplo, devem agregar às transações digitais a confiança ao usuários que dela se utilizam, negociam, compram, vendem, enfim, estabelecem suas relações jurídicas.
+

@@ -1,0 +1,42 @@
+(*Questão 1*)
+
+type tupla = int * int * int
+
+let trocas (x:tupla) =
+	   match x with
+	(a,b,c) -> (c,a,b);;
+
+
+(* type tupla_s = string * string 
+  
+  let trocas_nomes (n: tupla_s) =
+  	match n with
+  
+  (a,b) -> (b,a);;*)
+
+
+(*Questão 2*)
+
+let fatorial (n:float) =
+        if n<0 then invalid_arg "FALHA" else
+                let fator = ref 1.0 in
+                for i = 1 to n do
+                        print_float (!fator * (float_of_int i))
+                done;
+                !fator
+
+(*Questão 3*)
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
