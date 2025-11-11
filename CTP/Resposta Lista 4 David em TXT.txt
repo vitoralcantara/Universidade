@@ -1,0 +1,43 @@
+(*Questão 1*)
+
+let digito (c:char) = 
+match c with
+    '1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'|'0' -> true
+|_ -> false;;
+
+(*Questão 2*)
+
+let minuscula (l:char) = 
+match l with
+ 'A' .. 'Z' -> Char.lowercase l
+| _ -> l;;
+
+(*Questão 3*)
+
+let compare (a,b,c) (d,e,f) =
+((a,b,c) = (d,e,f));;
+
+(*Questão 5*)
+
+let avaliador ((op1,operador,op2):int*char*int) = 
+match operador with
+ '+'-> op1+op2
+|'-'-> op1-op2
+|'*'-> op1*op2
+|'/'-> op1/op2
+|_ -> -1;;
+
+(*Questão 4*) 
+
+let ou_exclusivo (a:bool) (b:bool) = 
+match a,b with
+ false,false -> true 
+|true,true -> false
+|true,false -> true
+|false,true-> true;;
+
+
+
+
+
+

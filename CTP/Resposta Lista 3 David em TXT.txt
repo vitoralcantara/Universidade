@@ -1,0 +1,55 @@
+(*Questão 1*)
+
+let pair_order ((a, b):int*int) = 
+if a <=b then (a,b)
+else (b,a);;
+
+(*Questão 2*)
+
+let triple_rotate_left ((u,v,w):int*int*int) = (v,w,u);;
+
+(*Questão 3*)
+
+let triple_rotate_n_left ((u,v,w):int*int*int) n =
+    match abs(n mod 3) with
+    0 -> (u,v,w)
+   |1 -> if n > 0 then (v,w,u) else (w,u,v)
+   |2 -> if n > 0 then (w,u,v) else (v,w,u);;
+
+(*Questão 4*)
+
+type date_t = { day : int; month : int; year : int };;
+
+let string_pt_of_date (port: date_t) =
+match port.month with
+ 0  -> "data inválida" 
+|1  -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|2  -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|3  -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|4  -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|5  -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|6  -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|7  -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|8  -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|9  -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|10 -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|11 -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|12 -> string_of_int(port.day) ^ " de Janeiro de " ^ string_of_int(port.year)
+|__ -> "data inválida";;
+
+(*Questão 5*)
+type point3d_t = { x : float; y : float; z : float };;
+
+ let distance3d (p1: point3d_t)(p2:point3d_t) =
+sqrt((p1.x -. p2.x)**2. +. (p1.y -. p2.y)**2. +. (p1.z -. p2.z)**2.);;  
+
+
+
+
+
+
+
+
+
+
+
