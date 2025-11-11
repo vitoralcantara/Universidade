@@ -1,0 +1,13 @@
+all: a.out
+
+a.out: BlockSort.o testSort.o
+	g++ BlockSort.o testSort.o -Wall -O3 -g
+
+testSort.o: testSort.cpp
+	g++ testSort.cpp -c -Wall -O3 -g
+
+BlockSort.o: BlockSort.h BlockSort.cpp
+	g++ BlockSort.h BlockSort.cpp -c -Wall -O3 -g
+
+clean:
+	rm *.o *~ *.gch -f

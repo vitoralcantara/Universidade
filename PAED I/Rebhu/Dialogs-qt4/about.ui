@@ -1,0 +1,104 @@
+<ui version="4.0" >
+ <class>rebhuAbout</class>
+ <widget class="QDialog" name="rebhuAbout" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>417</width>
+    <height>212</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Rebhu 0.5 - About</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset/>
+  </property>
+  <widget class="QPushButton" name="pushButton" >
+   <property name="geometry" >
+    <rect>
+     <x>330</x>
+     <y>180</y>
+     <width>83</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>400</width>
+     <height>150</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string/>
+   </property>
+   <property name="pixmap" >
+    <pixmap resource="../Icons/resources.qrc" >:/toolbar/splash.jpg</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>170</y>
+     <width>251</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Trabalho de conclusão - DIM0426 - Ufrn</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>291</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>http://giulianoxt.googlepages.com/rebhu</string>
+   </property>
+   <property name="textFormat" >
+    <enum>Qt::AutoText</enum>
+   </property>
+   <property name="openExternalLinks" >
+    <bool>true</bool>
+   </property>
+   <property name="textInteractionFlags" >
+    <set>Qt::LinksAccessibleByMouse|Qt::NoTextInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../Icons/resources.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>rebhuAbout</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>340</x>
+     <y>185</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>294</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,396 @@
+<ui version="4.0" >
+ <class>rebhuWindow</class>
+ <widget class="QMainWindow" name="rebhuWindow" >
+  <property name="windowModality" >
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="enabled" >
+   <bool>true</bool>
+  </property>
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>730</width>
+    <height>481</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>Rebhu 0.5</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../Icons/resources.qrc" >:/toolbar/main_icon-100x100.png</iconset>
+  </property>
+  <property name="statusTip" >
+   <string/>
+  </property>
+  <property name="layoutDirection" >
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="toolButtonStyle" >
+   <enum>Qt::ToolButtonTextUnderIcon</enum>
+  </property>
+  <property name="dockNestingEnabled" >
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget" >
+   <widget class="QTableWidget" name="fileTable" >
+    <property name="windowModality" >
+     <enum>Qt::NonModal</enum>
+    </property>
+    <property name="enabled" >
+     <bool>false</bool>
+    </property>
+    <property name="geometry" >
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>641</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="sizePolicy" >
+     <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="frameShape" >
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow" >
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy" >
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="alternatingRowColors" >
+     <bool>false</bool>
+    </property>
+    <property name="selectionMode" >
+     <enum>QAbstractItemView::ExtendedSelection</enum>
+    </property>
+    <property name="selectionBehavior" >
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="verticalScrollMode" >
+     <enum>QAbstractItemView::ScrollPerItem</enum>
+    </property>
+    <property name="horizontalScrollMode" >
+     <enum>QAbstractItemView::ScrollPerPixel</enum>
+    </property>
+    <property name="showGrid" >
+     <bool>false</bool>
+    </property>
+    <property name="gridStyle" >
+     <enum>Qt::NoPen</enum>
+    </property>
+    <property name="sortingEnabled" >
+     <bool>false</bool>
+    </property>
+    <property name="wordWrap" >
+     <bool>true</bool>
+    </property>
+    <property name="cornerButtonEnabled" >
+     <bool>false</bool>
+    </property>
+    <property name="rowCount" >
+     <number>0</number>
+    </property>
+    <property name="columnCount" >
+     <number>7</number>
+    </property>
+    <column>
+     <property name="text" >
+      <string>Nome</string>
+     </property>
+    </column>
+    <column>
+     <property name="text" >
+      <string>Original</string>
+     </property>
+    </column>
+    <column>
+     <property name="text" >
+      <string>Compactado</string>
+     </property>
+    </column>
+    <column>
+     <property name="text" >
+      <string>Ganho</string>
+     </property>
+    </column>
+    <column>
+     <property name="text" >
+      <string>Huffman</string>
+     </property>
+    </column>
+    <column>
+     <property name="text" >
+      <string>RLE</string>
+     </property>
+    </column>
+    <column>
+     <property name="text" >
+      <string>BWT</string>
+     </property>
+    </column>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>730</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArquivo" >
+    <property name="title" >
+     <string>Arquivo</string>
+    </property>
+    <addaction name="actionNovo" />
+    <addaction name="actionAbrir" />
+    <addaction name="separator" />
+    <addaction name="actionFechar" />
+    <addaction name="separator" />
+    <addaction name="actionSair" />
+   </widget>
+   <widget class="QMenu" name="menuConfigura_es" >
+    <property name="title" >
+     <string>Configurações</string>
+    </property>
+    <addaction name="actionTemplates" />
+    <addaction name="actionConfigGeral" />
+   </widget>
+   <widget class="QMenu" name="menuAjuda" >
+    <property name="title" >
+     <string>Ajuda</string>
+    </property>
+    <addaction name="actionFuncionamento" />
+    <addaction name="actionDoc" />
+    <addaction name="separator" />
+    <addaction name="actionSobre" />
+   </widget>
+   <addaction name="menuArquivo" />
+   <addaction name="menuConfigura_es" />
+   <addaction name="menuAjuda" />
+  </widget>
+  <widget class="QToolBar" name="geralBar" >
+   <property name="enabled" >
+    <bool>true</bool>
+   </property>
+   <property name="windowTitle" >
+    <string>toolBar</string>
+   </property>
+   <property name="windowIcon" >
+    <iconset resource="../Icons/resources.qrc" >:/toolbar/main_icon.png</iconset>
+   </property>
+   <property name="toolTip" >
+    <string/>
+   </property>
+   <property name="statusTip" >
+    <string/>
+   </property>
+   <property name="iconSize" >
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle" >
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+   <attribute name="toolBarArea" >
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak" >
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNovo" />
+   <addaction name="actionAbrir" />
+   <addaction name="actionTemplates" />
+   <addaction name="actionConsole" />
+  </widget>
+  <widget class="QStatusBar" name="statusBar" >
+   <property name="statusTip" >
+    <string/>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="fileBar" >
+   <property name="enabled" >
+    <bool>false</bool>
+   </property>
+   <property name="windowTitle" >
+    <string>toolBar_2</string>
+   </property>
+   <property name="windowIcon" >
+    <iconset resource="../Icons/resources.qrc" >:/toolbar/main_icon-100x100.png</iconset>
+   </property>
+   <property name="allowedAreas" >
+    <set>Qt::LeftToolBarArea|Qt::NoToolBarArea|Qt::RightToolBarArea</set>
+   </property>
+   <property name="iconSize" >
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle" >
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea" >
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak" >
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionAdicionar" />
+   <addaction name="actionRemover" />
+   <addaction name="actionExtrair" />
+   <addaction name="actionUpdate" />
+   <addaction name="actionFechar" />
+  </widget>
+  <action name="actionNovo" >
+   <property name="icon" >
+    <iconset resource="../Icons/resources.qrc" >:/toolbar/main_icon-100x100.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Novo</string>
+   </property>
+   <property name="toolTip" >
+    <string>Novo arquivo</string>
+   </property>
+   <property name="statusTip" >
+    <string>Cria um novo arquivo .reb</string>
+   </property>
+  </action>
+  <action name="actionAbrir" >
+   <property name="icon" >
+    <iconset resource="../Icons/resources.qrc" >:/toolbar/reb_folder.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Abrir</string>
+   </property>
+   <property name="statusTip" >
+    <string>Abre um arquivo .reb existente</string>
+   </property>
+  </action>
+  <action name="actionFechar" >
+   <property name="icon" >
+    <iconset resource="../Icons/resources.qrc" >:/toolbar/close-48x48.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Fechar</string>
+   </property>
+   <property name="statusTip" >
+    <string>Fecha o arquivo atual.</string>
+   </property>
+  </action>
+  <action name="actionSair" >
+   <property name="icon" >
+    <iconset/>
+   </property>
+   <property name="text" >
+    <string>Sair</string>
+   </property>
+  </action>
+  <action name="actionTemplates" >
+   <property name="icon" >
+    <iconset resource="../Icons/resources.qrc" >:/toolbar/Configurator.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Templates</string>
+   </property>
+   <property name="statusTip" >
+    <string>Configura os templates de compactação</string>
+   </property>
+  </action>
+  <action name="actionConfigGeral" >
+   <property name="text" >
+    <string>Configuração geral</string>
+   </property>
+  </action>
+  <action name="actionExtrair" >
+   <property name="icon" >
+    <iconset resource="../Icons/resources.qrc" >:/toolbar/down-48x48.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Extrair</string>
+   </property>
+   <property name="statusTip" >
+    <string>Extrai os arquivos selecionados no .reb à uma pasta local</string>
+   </property>
+  </action>
+  <action name="actionAdicionar" >
+   <property name="icon" >
+    <iconset resource="../Icons/resources.qrc" >:/toolbar/add_icon-100x100.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Adicionar</string>
+   </property>
+   <property name="statusTip" >
+    <string>Adiciona um arquivo à lista de comptactação do .reb</string>
+   </property>
+  </action>
+  <action name="actionRemover" >
+   <property name="icon" >
+    <iconset resource="../Icons/resources.qrc" >:/toolbar/remove_icon-100x100.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Remover</string>
+   </property>
+   <property name="statusTip" >
+    <string>Remove os arquivos selecionados da lista de compactação do .reb</string>
+   </property>
+  </action>
+  <action name="actionFuncionamento" >
+   <property name="text" >
+    <string>Funcionamento</string>
+   </property>
+  </action>
+  <action name="actionDoc" >
+   <property name="text" >
+    <string>Documentação Online</string>
+   </property>
+  </action>
+  <action name="actionSobre" >
+   <property name="text" >
+    <string>Sobre o Rebhu</string>
+   </property>
+  </action>
+  <action name="actionUpdate" >
+   <property name="icon" >
+    <iconset resource="../Icons/resources.qrc" >:/toolbar/Refresh2_h.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Update</string>
+   </property>
+   <property name="statusTip" >
+    <string>Realiza a compactação dos arquivos adicionados ao .reb</string>
+   </property>
+  </action>
+  <action name="actionConsole" >
+   <property name="icon" >
+    <iconset resource="../Icons/resources.qrc" >:/toolbar/Terminal.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Console</string>
+   </property>
+   <property name="statusTip" >
+    <string>Abre a janela de Console com algumas informações úteis</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../Icons/resources.qrc" />
+ </resources>
+ <connections/>
+</ui>

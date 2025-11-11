@@ -1,0 +1,149 @@
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+
+  
+
+  
+  table {
+    font-size: 1em;
+  }
+
+  
+  div, address, ol, ul, li, option, select { 
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  p {
+    margin: 0px;
+  }
+
+  body {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  h6 { font-size: 10pt }
+  h5 { font-size: 11pt }
+  h4 { font-size: 12pt }
+  h3 { font-size: 13pt }
+  h2 { font-size: 14pt }
+  h1 { font-size: 16pt }
+
+  blockquote {padding: 10px; border: 1px #DDDDDD dashed }
+
+  a img {border: 0}
+
+  
+  
+
+  
+  body {
+    font-family: Verdana;
+    
+    font-size: 10.0pt;
+    line-height: normal;
+    background-color: #ffffff;
+  }
+
+
+
+
+</style>
+
+
+
+</head>
+
+
+<body revision="dgqk53xv_406hz8qk:129">
+
+<p style=FONT-FAMILY:Arial>
+  <font size=4><b>Rebhu</b></font>
+</p>
+<p style=FONT-FAMILY:Arial>
+  <br>
+</p>
+<p style=FONT-FAMILY:Arial>
+  <b>Aluno:</b> Giuliano de Souza Vilela Cid
+</p>
+<p style=FONT-FAMILY:Arial>
+  <b>Matrícula</b>: 20071-8215
+</p>
+<p style=FONT-FAMILY:Arial>
+  <b>Turma</b>: DIM0426-T1
+</p>
+<span style=FONT-FAMILY:Arial><b>Assunto</b>:
+</span><i style=FONT-FAMILY:Arial>Projeto de software para compactação de
+arquivos.<br>
+</i><span style=FONT-FAMILY:Arial><b>Website:
+</b>http://giulianoxt.googlepages.com/rebhu</span><i style=FONT-FAMILY:Arial><br>
+<br>
+</i>A descrição completa do projeto se encontra em
+http://giulianoxt.googlepages.com/rebhu.<br>
+<br>
+<b>Para compilar </b>(assumindo shell no diretório do projeto)<b>:<br>
+</b><i>cd Rebhu-qt4<br>
+make<br>
+</i>(Caso o Makefile default não sirva: algum erro de compilação)<i><br>
+qmake Rebhu-qt4.pro<br>
+make<br>
+<br>
+</i><b>Requisitos:<br>
+</b>Qt 4.3.2 (junto com o Qt Designer 4.3.2)<br>
+Compilador C++ com implementação da STL.<br>
+<br>
+<b>Navegação no projeto:<br>
+</b>O website do projeto conta com ótimas descrições do projeto em geral.
+Recomendo começar por lá caso queira se inteirar do projeto como um todo.
+Depois, entre na seção de documentação Doxygen (link Documentação Online) para
+ter uma visão mais técnica dos projetos (todas as classes e a maioria das
+funções estão documentadas lá. Tudo com código fonte junto, para acompanhar a
+documentação).<br>
+<br>
+Como o projeto tomou dimensões acima do esperado, vai uma lista abaixo, header
+por header, explicando a função dos elementos presentes em cada um:<br>
+<br>
+Classes referentes à GUI em Qt:<br>
+<b>rebhuMainWindow.h</b>: Modificação de uma QMainWindow que representa a janela
+inteira da GUI do Rebhu. Contêm toda a lógica da GUI junto com a interação com
+um objeto da classe RebFile, presente em RebhuMain.h.<br>
+<b>rebhuAbout.h</b>: Modificação de uma QDialog com o tema do Rebhu, informações
+gerais sobre o software.<br>
+<b>rebhuProgressDialog.h</b>: Modificação de uma QDialog com o tema do Rebhu e
+com informações de progresso referentes à compactação de um arquivo.<br>
+<br>
+Classes em geral do Rebhu:<br>
+<b>RebhuMain.h: </b>Arquivo principal da biblioteca Rebhu. Contêm as funções de
+compressão e descompressão além da classe chave RebFile que simula a iteração
+com um arquivo .reb aberto. Esta classe utiliza quase todas as outras classes do
+Rebhu, com exceção das classes da GUI.<br>
+<b>RebhuDefaults.h: </b>Contêm duas exceções praticamente não utilizadas e a
+classe UInt responsável por fazer conversões entre unsigned int e byte array
+(byte*). Utilizada por algumas classes dos algoritmos de compactação, porém é
+obsoleta: a classe BitArray já tem métodos que realizam essas operações.<br>
+<b>BitArray.h: </b>Contêm a classe BitArray, modelando um bitset da stl com mais
+funcionalidades.<br>
+<b>BitFile.h</b>: Classe que representa um arquivo que pode ser escrito/lido bit
+a bit ou byte a byte, dependendo da necessidade.<br>
+<b>BinarySearchTree.h</b>: Implementação direta de Árvore Binária de Busca.<br>
+<b>BlockSort.h</b>: As funções deste arquivo não estão sendo utilizadas no
+projeto. São algoritmos experimentais de ordenação para o BWT, mas que não
+atinjiram resultados melhores que as funções de ordenação padrão.<br>
+<b>BurrowsWheeler.h</b>: Codificador/Decodificador do algoritmo de transformação
+BWT.<br>
+<b>Huffman.h</b>: Codificador/Decodificador do algoritmo Huffman.<br>
+<b>HuffmanTree.h</b>: Subclasse de BinarySearchTree&lt;byte&gt;, modela uma
+árvore com peso (árvore de Huffman), utilizada para gerar os códigos deste
+algoritmo.<br>
+<b>PriorityQueue.h</b>: Implementação direta de uma fila de prioridade,
+utilizada no Huffman.<br>
+<b>Rle.h</b>: Codificador/Decodificador do algoritmo de compactação Run Length
+Encoding.<br>
+<br>
+<i><br>
+<br>
+</i></body>
+</html>

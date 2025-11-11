@@ -1,0 +1,12 @@
+Tabela com os caracteres codificados:
+
+Codigo da Letra o: 000
+Codigo da Letra  : 001
+Codigo da Letra a: 0010
+Codigo da Letra r: 0011
+Codigo da Letra g: 001100
+Codigo da Letra m: 001101
+Codigo da Letra h: 00110100
+Codigo da Letra e: 00110101
+Codigo da Letra n: 001101010
+Codigo da Letra d: 001101011

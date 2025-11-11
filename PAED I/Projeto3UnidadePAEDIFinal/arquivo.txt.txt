@@ -1,0 +1,5 @@
+Tabela com os caracteres codificados:
+
+Codigo da Letra u: 0
+Codigo da Letra m: 10
+Codigo da Letra d: 11

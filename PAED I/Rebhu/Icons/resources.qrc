@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/toolbar" >
+        <file>Configurator.png</file>
+        <file>Refresh2_h.png</file>
+        <file>Terminal.png</file>
+        <file>add_icon-100x100.png</file>
+        <file>close-48x48.png</file>
+        <file>down-48x48.png</file>
+        <file>main_icon-100x100.png</file>
+        <file>reb_folder.png</file>
+        <file>remove_icon-100x100.png</file>
+        <file>resources.qrc</file>
+        <file>splash.jpg</file>
+    </qresource>
+</RCC>

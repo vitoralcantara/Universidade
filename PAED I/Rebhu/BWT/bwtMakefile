@@ -1,0 +1,25 @@
+_flags = -Wall -O3 -c -g
+_main_flag = -Wall -O3
+
+all: a.out
+
+a.out: RebhuDefaults.o testBwt.o BurrowsWheeler.o BitFile.o BitArray.o
+	g++ RebhuDefaults.o testBwt.o BurrowsWheeler.o BitFile.o BitArray.o -Wall -O3
+
+testBwt.o: testBwt.cpp
+	g++ testBwt.cpp $(flags)
+
+BurrowsWheeler.o: BurrowsWheeler.h BurrowsWheeler.cpp
+	g++ BurrowsWheeler.h BurrowsWheeler.cpp $(flags)
+
+RebhuDefaults.o: ../RebhuDefaults.h ../RebhuDefaults.cpp
+	g++ ../RebhuDefaults.h ../RebhuDefaults.cpp $(flags)
+
+BitFile.o: ../BitLib/BitFile.h ../BitLib/BitFile.cpp
+	g++ ../BitLib/BitFile.h ../BitLib/BitFile.cpp $(flags)
+
+BitArray.o: ../BitLib/BitArray.h ../BitLib/BitArray.cpp
+	g++ ../BitLib/BitArray.h ../BitLib/BitArray.cpp $(flags)
+
+clean:
+	rm *.o *~ *.gch -f

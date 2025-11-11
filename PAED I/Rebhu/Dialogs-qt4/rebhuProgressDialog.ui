@@ -1,0 +1,100 @@
+<ui version="4.0" >
+ <class>rebhuProgressDialog</class>
+ <widget class="QWidget" name="rebhuProgressDialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>464</width>
+    <height>154</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Rebhu - Compactação</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../Icons/resources.qrc" >:/toolbar/main_icon-100x100.png</iconset>
+  </property>
+  <widget class="QLabel" name="label" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>10</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string/>
+   </property>
+   <property name="pixmap" >
+    <pixmap resource="../Icons/resources.qrc" >:/toolbar/main_icon-100x100.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2" >
+   <property name="geometry" >
+    <rect>
+     <x>110</x>
+     <y>20</y>
+     <width>291</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Aguarde enquanto as operações são feitas...</string>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="progressBar" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>441</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="maximum" >
+    <number>10000</number>
+   </property>
+   <property name="value" >
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fileLabel" >
+   <property name="geometry" >
+    <rect>
+     <x>110</x>
+     <y>60</y>
+     <width>351</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Arquivo atual:</string>
+   </property>
+   <property name="wordWrap" >
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="opLabel" >
+   <property name="geometry" >
+    <rect>
+     <x>110</x>
+     <y>80</y>
+     <width>351</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Operação atual:</string>
+   </property>
+   <property name="wordWrap" >
+    <bool>false</bool>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../Icons/resources.qrc" />
+ </resources>
+ <connections/>
+</ui>
