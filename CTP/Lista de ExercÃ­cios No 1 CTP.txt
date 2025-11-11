@@ -1,0 +1,16 @@
+DIM0425 - Conceitos e Técnicas de Programação / DIM0424 - Prática de Conceitos e Técnicas de Programação
+Lista de exercícios nº 1.
+Data de divulgação: 07 de março de 2008.
+Prazo de entrega: 11 de março de 2008.
+Forma de entrega: via ATutor
+Conteúdo: tipos, variáveis e definição de funções simples.
+
+1. Defina uma função, nomeada celsius_of_kelvin, de tipo float -> float, que converta temperaturas expressas em graus Kelvin para graus Celsius. A fórmula estabelecendo a relação entre essas duas unidades é que N ºK = N + 273,15 ºC.
+
+2. Defina uma função, nomeada fahrenheit_of_celsius, do tipo float -> float, que converta temperaturas expressas em graus Celsius para graus Fahrenheit. A fórmula estabelecendo a relação entre essas duas unidades é que N °F = N °C × 1,8 + 32.
+
+3. Usando as duas funções desenvolvidas nas duas primeiras questões, defina uma função chamada fahrenheit_of_kelvin, de tipo float->float, que converta temperaturas expressas em graus Kelvin para graus Fahrenheit.
+
+4. Defina uma função, nomeada apply_thrice, do tipo (int * (int -> int)) -> int, que dados um valor inteiro n e uma função entre inteiros f, retorna o valor de f(f(f(n))). Por exemplo, apply_thrice (2, (fun n -> n * n)) deve retornar o valor 256.
+
+5. Defina uma função, nomeada auto_compose_thrice, do tipo (int -> int) -> (int -> int), que dado uma função entre inteiros f, retorna a função que ao inteiro n associa o inteiro f(f(f(n))). Por exemplo, auto_compose_thrice (fun n -> n * n) deve retornar uma função equivalente à (fun n -> n * n * n * n * n * n * n * n). 

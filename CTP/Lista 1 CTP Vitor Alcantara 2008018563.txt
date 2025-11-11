@@ -1,0 +1,49 @@
+(*Vítor Alcântara de Almeida
+Matrícula 2008018563
+Ciências da Computação - 2008.1*)
+
+
+(*Questão 01*)
+let celsius_of_kelvin(x:float) = x -. 273.15;;
+
+(*Questão 02*)
+let fahrenheit_of_celsius(c:float) = c *. 1.8 +. 32.;; 
+
+(*Questão 03*)
+let fahrenheit_of_kelvin = (fahrenheit_of_celsius(celsius_of_kelvin));;
+
+(*Questão 04*)
+let apply_thrice((n: int), f) = f(f(f(n)));;
+
+(*Questão 05*)
+let auto_compose_thrice f = fun n -> f(f(f(n)));;
+
+let funcaodecarol = (fun n*n(fun n*n ((fun n -> n * n)n)))
+
+
+
+
+apply_thrice (2, (fun n -> n * n));;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

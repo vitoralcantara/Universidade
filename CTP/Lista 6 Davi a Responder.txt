@@ -1,0 +1,41 @@
+Editar
+
+DIM0425 - Conceitos e Técnicas de Programação / DIM0424 - Prática de Conceitos e Técnicas de Programação
+Lista de exercícios nº 6.
+Data de divulgação: 23 de abril de 2008.
+Prazo de entrega: 29 de abril de 2008.
+Forma de entrega: via ATutor
+Conteúdo: tipos variantes
+
+Considera o seguinte tipo variante, usado para representar as notas musicais do, re, mi, fa, sol, la e si (da mais grave à mais aguda). A nota acima do si é o do da gama imediatamente superior.
+type note_t = Do | Re | Mi | Fa | Sol | La | Si
+
+1. Defina uma função, chamada note_higher, de tipo note_t -> note_t que dada uma nota, retorna a nota imediatamente mais aguda.
+
+As unidades imperiais de medidas são polegar, pé, jarda e milha. São relacionadas com o sistema métrico da seguinte forma: 1 polegar (inch) é 2,54cm, 1 pé (foot) é 30,48 cm, 1 jarda (yard) é 91,44cm, 1 milha (mile) é 1609,344 m. Há também o milésimo (thou), que equivale a um milésimo de polegar. Um pé equivale a doze polegadas, uma jarda a três pés e uma milha a 1760 jardas.
+Considere os seguintes tipos:
+type imperial_unit_t = { thou : int ; inch : int ; foot : int ; yard : int ; mile: int }
+type distance_t = Metric of float | Imperial of imperial_unit_t
+O tipo imperial_unit_t representa uma distância em medidas imperiais. O tipo distance_t representa uma distância expressa em medidas métricas. Em valores do tipo imperial_unit_t, o valor máximo do campo thou é 999, o valor máximo do campo inch é 11, o valor máximo do campo foot é 2, o valor máximo do campo yard é 1759.
+
+2. Defina uma função string_of_distance, de tipo distance_t -> string, que, dada um valor do tipo distance_t, retorna um string indicando àquela distância no seu sistema de unidades.
+Por exemplo:
+string_of_distance (Metric 2.5) é "2.5m"
+string_of_distance (Imperial { thou = 34; inch = 2; foot = 1; yard = 4; mile = 8}) é "8mi4yd1ft2in34"
+
+3. Defina uma função meters_of_distance, de tipo distance_t ->float, que, dada um valor do tipo distance_t, retorna o número de metros correspondendo àquela distância.
+Por exemplo:
+string_of_distance (Metric 2.5) é 2.5
+
+4. Defina uma função distance_compare, de tipo distance_t -> distance_t -> int, que, dada dois valores do tipo distance_t, retorna um valor positivo se a primeira for maior que a segunda, nulo se forem iguais, e negativo se a primeira for menor que a segunda.
+
+5. Defina uma função distance_sum, de tipo distance_t -> distance_t -> distance_t, que, dada dois valores do tipo distance_t, retorna o valor do tipo distance_t correspondendo à soma das duas distâncias dadas. Esse valor deve ser na unidade métrica se pelo menos um dos argumentos for na unidade métrica. Caso contrário deve ser no sistema de unidades imperiais. Se for no sistema de unidades imperiais, a função deve obedecer às restrições de valores enumeradas acima para os diversos campos.
+
+5.
+
+
+Editar esta página (você tem permissão)
+Editar esta página (se você tiver permissão) | Denunciar spam 
+Google Docs – processador de texto, apresentações e planilhas na web.
+
+ 

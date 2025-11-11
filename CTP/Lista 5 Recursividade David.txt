@@ -1,0 +1,71 @@
+(*Lista de Exercícios 5 David*)
+
+(*Questão 1*)
+
+let rec somaquadrados n = 
+	match n with
+	 1 -> 1
+	|_ -> n*n + somaquadrados(n - 1)	
+
+(*Questão 2*)
+
+let rec fib n =
+	match n with
+	 0 -> 1
+	|1 -> 1
+	|_ -> fib(n-1) + fib(n-2) 
+
+let rec somafib n =
+match n with 
+ 0 -> 1
+|1 -> 2
+|_ -> fib(n) + somafib(n-1)
+
+(*Questão 3*)
+
+let rec mdc (x,y) =
+if y = 0 then x
+else 
+if x>=y && y> 0  then mdc(y,x)
+else mdc(y,x)
+
+(*Questão 4*)
+
+let numfact x =
+if x = 0 then 0 else
+let v = x in
+let rec teste num den=
+if den = 1 then 1 else   
+if num mod den = 0 then 1 + teste num (den -1)
+else 0 + teste num (den -1)
+in (teste x v)   
+
+(*Questão 5*)
+
+let pi n =
+
+   
+
+
+
+
+
+
+
+(*imprimir os 10 primeiros valores*)
+
+let dez a  = 
+let a = 10 in
+let b = 9 in
+let c = 8 in
+let d = 7 in
+let e = 6 in
+let f = 5 in
+let g = 4 in
+let h = 3 in
+let i = 2 in
+let j = 1 in
+(a, b, c, d, e, f, g, h, i, j)
+ 
+
+

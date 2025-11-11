@@ -1,0 +1,53 @@
+(*Questão 1*)
+
+type note_t = Do | Re | Mi | Fa | Sol | La | Si
+
+let note_higher (nota:note_t) =
+match nota with
+ Do -> Si
+|Re -> Do
+|Mi -> Re
+|Fa -> Mi
+|Sol -> Fa
+|La -> Sol
+|Si -> La
+
+(*Questão 2*)
+
+type imperial_unit_t = { thou : int ; inch : int ; foot : int ; yard : int ; mile: int }
+type distance_t = Metric of float | Imperial of imperial_unit_t
+
+let string_of_distance (dst:distance_t) =
+match dst with
+ Metric(a) -> string_of_float(a)^"m"
+|Imperial{thou = tho;inch = inc;foot = foo;yard = yar;mile = mil} -> string_of_int(mil)^"mi"^string_of_int(yar)^"yd"^string_of_int(foo)^"ft"^string_of_int(inc)^"in"^string_of_int(tho)
+
+(*Questão 3*)
+
+let meters_of_distance (dst:distance_t) =
+match dst with
+ Metric(a) -> a
+|Imperial{thou = tho;inch = inc;foot = foo;yard = yar;mile = mil} -> 0.0254*.float_of_int(inc) +. 0.3048*.float_of_int(foo) +. 0.9144*.float_of_int(yar) +. 1609.344*.float_of_int(mil) +. 0.0000254*.float_of_int(tho)
+
+(*Questão 4*)
+
+let distance_compare (dst1:distance_t) (dst2:distance_t) = 
+int_of_float(meters_of_distance dst1) - int_of_float(meters_of_distance dst2) 
+
+(*Questão 5*)
+
+let distance_sum (dst1:distance_t) (dst2:distance_t) = 
+match dst1, dst2 with
+ Metric(a), Metric (b) -> Metric(meters_of_distance dst1 +. meters_of_distance dst2)
+|Metric(a),_ -> Metric(meters_of_distance dst1 +. meters_of_distance dst2)
+|_,Metric(b) -> Metric(meters_of_distance dst1 +. meters_of_distance dst2)
+|Imperial{thou = tho1;inch = inc1;foot = foo1;yard = yar1;mile = mil1},
+	Imperial{thou = tho2;inch = inc2;foot = foo2;yard = yar2;mile = mil2} ->
+	let carrytho = if tho1 + tho2 < 999 then 0 else 1 in
+	let carryinc = if inc1 + inc2 + carrytho < 11 then 0 else 1 in
+	let carryfoo = if foo1 + foo2 + carryinc < 2 then 0 else 1 in
+	let carryyar = if yar1 + yar2 + carryfoo < 1759 then 0 else 1 in
+	let sumtho = if carrytho = 0 then tho1 + tho2 else (tho1 + tho2) - 999 in
+	let suminc = if carryinc = 0 then inc1 + inc2 + carrytho else (inc1 + inc2 + carrytho) - 11 in
+	let sumfoo = if carryfoo = 0 then foo1 + foo2 + carryinc else (foo1 + foo2 + carryinc) - 2 in
+	let sumyar = if carryyar = 0 then yar1 + yar2 + carryfoo else (yar1 + yar2 + carryfoo) - 1759 in let summil = mil1 + mil2 + carryyar in Imperial{thou = sumtho; inch = suminc; foot = sumfoo; yard = sumyar; mile = summil}

@@ -1,0 +1,43 @@
+(*DIM0425 - Conceitos e Técnicas de Programação / DIM0424 - Prática de Conceitos e Técnicas de Programação
+Lista de exercícios nº 2.
+Data de divulgação: 12 de março de 2008.
+Prazo de entrega: 16 de março de 2008.
+Forma de entrega: via ATutor
+Conteúdo: expressões condicionais*)
+
+
+
+(*Questão 2*)
+
+let ir din = if (din <= 1257.12) then 0.
+else if (din >= 1257.13) && (din <= 2512.08) then din*. 0.15 -. 188.57
+else din*. 0.275 -. 502.58;;
+
+(*Questão 3*)
+
+let ir2 = fun (din: float) (dep: int) -> if (din <= 1257.12) then 0.
+else if (din >= 1257.13) && (din <= 2512.08) then float_of_int dep *. (din*. 0.15 -. 126.57)
+else float_of_int dep *. (din*. 0.275 -. 126.57);;
+
+(*Questão 4*)
+
+let bissexto year = if year mod 400 = 0 then true
+else if year mod 100 = 0 then false 
+else if year mod 4 = 0 then true
+else false;;
+
+(*Questão 5*)
+
+let horoscopo dd mm = 
+if ((dd>=22 && dd<=31) && mm=12) || ((dd>=1 && dd<= 21) && mm = 01) then "Capricornio" else 
+if ((dd>=21 && dd<=31) && mm=01) || ((dd>=1 && dd<= 18) && mm = 02) then "Aquario" else
+if ((dd>=19 && dd<=28) && mm=02) || ((dd>=1 && dd<= 19) && mm = 03) then "Peixes" else
+if ((dd>=20 && dd<=31) && mm=03) || ((dd>=1 && dd<= 20) && mm = 04) then "Aries" else
+if ((dd>=21 && dd<=31) && mm=04) || ((dd>=1 && dd<= 20) && mm = 05) then "Touro" else
+if ((dd>=21 && dd<=31) && mm=05) || ((dd>=1 && dd<= 20) && mm = 06) then "Gemeos" else
+if ((dd>=21 && dd<=31) && mm=06) || ((dd>=1 && dd<= 21) && mm = 07) then "Cancer" else
+if ((dd>=22 && dd<=31) && mm=07) || ((dd>=1 && dd<= 22) && mm = 08) then "Leao" else
+if ((dd>=23 && dd<=31) && mm=08) || ((dd>=1 && dd<= 20) && mm = 09) then "Virgem" else
+if ((dd>=23 && dd<=31) && mm=09) || ((dd>=1 && dd<= 22) && mm = 10) then "Libra" else
+if ((dd>=23 && dd<=31) && mm=10) || ((dd>=1 && dd<= 21) && mm = 11) then "Escorpiao" else
+"Sagitario" ;;

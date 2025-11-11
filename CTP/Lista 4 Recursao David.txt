@@ -1,0 +1,48 @@
+Editar
+
+DIM0425 - Conceitos e Técnicas de Programação / DIM0424 - Prática de Conceitos e Técnicas de Programação
+Lista de exercícios nº 5.
+Data de divulgação: 15 de abril de 2008.
+Prazo de entrega: 22 de abril de 2008.
+Forma de entrega: via ATutor
+Conteúdo:recursividade
+
+1. Defina a função OCaml somaQuadrados : int -> int que toma um inteiro n e computa a soma dos quadrados dos números de 1 até n.
+
+ 
+
+2. Escreva a função OCaml somaFib : int -> int  que, dado n, computa a soma dos n primeiros termos da sequência de Fibonacci.
+
+ 
+
+3. Dados dois números inteiros a e b não nulos, define-se o máximo divisor comum (MDC) como sendo o maior inteiro que divide simultaneamente a e b. O algoritmo de Euclides é uma função recursiva que computa o MDC de acordo com a seguinte definição:
+
+ 
+
+   mdc(x,y) = x,  se y = 0, ou
+                  mdc(y, x mod y), se x >= y e y > 0
+
+ 
+
+Crie a função OCaml mdc : int * int -> int para o cálculo do MDC segundo o algoritmo de Euclides.
+
+
+4. Os fatores de um número são todos os números que dividem esse número uniformente. Por exemplo, os fatores de 6 são 1, 2, 3 e 6. 4 não é um fator de 6 porque 6 não pode ser dividido em 4 partes iguais. Um número primo p tem apenas dois fatores, 1 e o próprio p. Um número composto tem mais que dois fatores. Defina a função OCaml numFatores : int -> int que dado n computa o número de fatores de n na faixa 1..n.
+
+
+5. O número pi é o irracional mais famoso da história, com o qual se representa a razão constante entre o perímetro de qualquer circunferência e o seu diâmetro . Em 1656, John Wallis,
+
+professor de Geometria da Universidade de Oxford, provou que pi/2 é igual ao produto infinito de números racionais. O numerador destas frações contém inteiros pares cada um repetindo-se duas vezes, e o denominador contém inteiros ímpares, cada um repetindo-se duas vezes (com exceção do 1). O resultado obtido por Wallis pode ser escrito da seguinte forma:
+
+
+   pi/2 = (2/1) * (2/3) * (4/3) * (4/5) * (6/5) * (6/7) * (8/7) * (8/9) ...
+
+ 
+
+Crie a função OCaml pi : int -> float que, dado n, calcula o valor de pi com n parcelas, de acordo com esta fórmula.
+
+Editar esta página (você tem permissão)
+Editar esta página (se você tiver permissão) | Denunciar spam 
+Google Docs – processador de texto, apresentações e planilhas na web.
+
+ 

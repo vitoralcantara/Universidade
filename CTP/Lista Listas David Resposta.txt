@@ -1,0 +1,37 @@
+(*Questão 1*)
+
+type list_int = 
+	Cons of int*list_int | Empty
+
+let lista n =
+let rec teste v =
+if v = n then [n]
+else v :: teste(v+1) in 
+teste 2
+
+(*Questão 2*)
+
+let rec concac (l1:'a list) (l2: 'a list) =
+match l1 with
+ [] -> l2
+|hd::tl -> hd::concac tl l2
+
+(*Questão 3*)
+
+let rec listcount l =
+match l with
+ [] -> 0
+|hd::tl -> 1 + listcount tl
+
+let list_nth l1 n = 
+if listcount l1 > n then invalid_arg "a lista não possui tantos valores"
+else
+if n = 1 then []
+else if n = 2 then 
+
+
+
+
+
+
+
