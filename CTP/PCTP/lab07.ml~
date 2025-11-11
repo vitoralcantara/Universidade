@@ -1,0 +1,81 @@
+(*Questão 1a*)
+
+let rec sublista l1 l2 =
+match l1, l2 with
+ [],_ -> true
+|_,[] -> false
+|hd::tl,ca::rb -> if hd = ca then sublista tl rb
+		else sublista l1 rb 
+
+(*Questão 1b*)
+
+let rec subsequencia l1 l2 =
+match l1,l2 with
+ [],_ -> true
+|_,[] -> false 
+|hd::tl,ca::rb -> if hd = ca then let rec aux lst1 lst2 =
+					match lst1, lst2 with
+					[],_ -> true
+					|_,[] -> false
+					|a::b,c::d when a = c -> aux b d
+					|a::b,c::d when a <> c -> false	
+					in if aux tl rb then true
+					else subsequencia l1 rb
+	          else subsequencia l1 rb
+
+(*Questão 2a*)
+
+type ('a , 'b)  lassoc = ('a * 'b) list
+
+
+(*Questão 2b*)
+
+let rec alist_find l k =
+match l with
+ [] -> false
+|(x,_)::tl -> if x = k then true else alist_find tl k 
+
+(*Questão 2c*)
+
+let rec alist_access l k =
+match l with
+ [] -> invalid_arg "tem valor nenhum meu chapa"
+|(x,z)::tl -> if x = k then z else alist_access tl k 
+
+alist_access [(4,"bc");(5,"df")] 5
+
+(*Questão 2d*)
+
+let rec alist_remove l k =
+match l with
+ [] -> []
+|(x,z)::tl when x<>k -> (x,z)::(alist_remove tl k)
+|(x,z)::tl when x = k -> alist_remove tl k
+
+(*Questão 2e*)
+
+let rec alist_insert (l:('a,'b)lassoc) k r =
+match l with
+ [] -> (k,r) 
+|(x,_)::tl when x=k -> (x,r)::tl
+|(x,z)::tl when x <> k -> (x,z)::(alist_insert tl k r)
+
+(*Questão 3*)
+
+type ('a,'b) digrafo = ( 'a * 'b * 'a) list   
+
+let rec conexo a b g =
+match g with
+ [] -> false
+|(v1,nome,v2)::tl when v1 <> a -> conexo a b tl 
+|(v1,nome,v2)::tl when v1 = a -> if v2 = b then true else 
+				let rec aux vert list =
+					match list with
+					|[] -> false
+					|(ve1,base,ve2)::rb when ve2 = vert -> true
+					|(ve1,base,ve2)::rb when ve2 <> vert -> aux vert rb
+					in (aux b tl)    
+
+
+conexo 2 5 [(1,"casa",2),(2,"casa",3),(3,"casa",4),(4,"casa",5)]
+
