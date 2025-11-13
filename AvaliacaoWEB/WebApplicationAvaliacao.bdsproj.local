@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2008/07/08 15:02:45.015.aspx,C:\Documents and Settings\aluno\Desktop\AvaliacaoWEB\WebForm2.aspx=C:\Documents and Settings\aluno\Desktop\AvaliacaoWEB\WebFormLogin.aspx</Transaction>
+    <Transaction>2008/07/08 15:02:45.015.pas,C:\Documents and Settings\aluno\Desktop\AvaliacaoWEB\WebForm2.pas=C:\Documents and Settings\aluno\Desktop\AvaliacaoWEB\WebFormLogin.pas</Transaction>
+    <Transaction>2008/07/08 15:02:45.046.aspx,C:\Documents and Settings\aluno\Desktop\AvaliacaoWEB\WebForm2.aspx=C:\Documents and Settings\aluno\Desktop\AvaliacaoWEB\WebFormLogin.aspx</Transaction>
+    <Transaction>2008/07/08 15:02:45.046.pas,C:\Documents and Settings\aluno\Desktop\AvaliacaoWEB\WebForm2.pas=C:\Documents and Settings\aluno\Desktop\AvaliacaoWEB\WebFormLogin.pas</Transaction>
+  </Transactions>
+</BorlandProject>

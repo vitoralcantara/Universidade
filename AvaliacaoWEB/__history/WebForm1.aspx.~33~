@@ -1,0 +1,167 @@
+<%@ Page language="c#" Debug="true" Codebehind="WebForm1.pas" AutoEventWireup="false" Inherits="WebForm1.TWebForm1" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+     <form runat="server">
+      <table cellspacing="1" cellpadding="1" width="300" border="0">
+          <tr>
+            <td>Placa&nbsp;&nbsp;Mãe:&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
+            <td>
+              <ASP:DropDownList id="DropDownList1" runat="server" width="298px">
+                <ASP:ListItem value="429">Intel Q35joe - (R$ 429,00)</ASP:ListItem>
+                <ASP:ListItem value="239">SL7I945GCM Socket 775 INNO3D - (R$239,00)</ASP:ListItem>
+                <ASP:ListItem value="280">EMAX ECS - (R$280,00)</ASP:ListItem></ASP:DropDownList></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Memória RAM:</td>
+            <td>
+              <ASP:CheckBoxList id="CheckBoxList1" runat="server">
+                <ASP:ListItem value="512Mb DDR2 - (R$ 55,00)" selected="True">512Mb DDR2 - (R$ 55,00)</ASP:ListItem>
+                <ASP:ListItem value="1Gb DDR2 - (R$85,00)">1Gb DDR2 - (R$85,00)</ASP:ListItem>
+                <ASP:ListItem value="2Gb DDR2 - (R$ 150,00)">2Gb DDR2 - (R$ 150,00)</ASP:ListItem>
+              </ASP:CheckBoxList></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Memória HD:</td>
+            <td>
+              <ASP:DropDownList id="DropDownList4" runat="server" width="296px">
+                <ASP:ListItem value="50">20Gb - (R$50,00)</ASP:ListItem>
+                <ASP:ListItem value="100">40Gb - (R$100,00)</ASP:ListItem>
+                <ASP:ListItem value="150">80Gb - (R$150,00)</ASP:ListItem></ASP:DropDownList></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <p>&nbsp;</p>Dispositivos de Entrada/Saída 
+
+              <p>&nbsp;</p></td>
+            <td>
+              <table cellspacing="1" cellpadding="1" width="300" border="0">
+                  <tr>
+                    <td style="WIDTH: 243px">
+                      <ASP:RadioButton id="RadioButton1" runat="server" text="Unidade de Disquete - (R$15,00) "></ASP:RadioButton></td>
+                    <td>
+                      <p></p></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td style="WIDTH: 243px; HEIGHT: 68px">
+                      <p>Leitor e de CD e DVD:</p>
+                      <p>Velocidade: 
+                        <ASP:DropDownList id="DropDownList6" runat="server" width="173" height="22">
+                          <ASP:ListItem value="20">32x - (R$20,00)</ASP:ListItem>
+                          <ASP:ListItem value="25">48x - (R$25,00)</ASP:ListItem></ASP:DropDownList>
+                      </p>
+                      <p>Quantidade:</p>
+                      <p>
+                        <ASP:CheckBoxList id="CheckBoxList3" runat="server">
+                          <ASP:ListItem value="1" selected="True">1 Unidade </ASP:ListItem>
+                          <ASP:ListItem value="2 ">2 Unidades </ASP:ListItem>
+                          <ASP:ListItem value="3">3 Unidades </ASP:ListItem>
+                          <ASP:ListItem value="0">0 Unidade </ASP:ListItem>
+                        </ASP:CheckBoxList></p>
+                      <p>
+                      </p></td>
+                    <td style="HEIGHT: 68px">
+                      <p>Extras:</p>
+                      <p>
+                        <ASP:CheckBoxList id="CheckBoxList4" runat="server">
+                          <ASP:ListItem value="25" selected="True">Gravador de CD - R$25,00</ASP:ListItem>
+                          <ASP:ListItem value="50">Gravador de DVD - R$50,00</ASP:ListItem>
+                        </ASP:CheckBoxList>
+                      </p>
+                      <p>
+                      </p>
+                      <p>&nbsp;</p></td>
+                    <td style="HEIGHT: 68px"></td>
+                  </tr>
+                  <tr>
+                    <td style="WIDTH: 243px">
+                      <p>
+                      <ASP:RadioButton id="RadioButton3" runat="server" text="Leitor de Cartão SD"></ASP:RadioButton></p>
+                      <p>Memória: 
+                        <ASP:DropDownList id="DropDownList5" runat="server" width="237px">
+                          <ASP:ListItem value="80">1Gb (R$80,00)</ASP:ListItem>
+                          <ASP:ListItem value="140">2Gb (R$140,00)</ASP:ListItem></ASP:DropDownList>
+                      </p></td>
+                    <td>
+                      <p>&nbsp;</p>
+                      <p></p></td>
+                    <td></td>
+                  </tr>
+              </table></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Acessórios:</td>
+            <td>
+              <ASP:CheckBoxList id="CheckBoxList2" runat="server">
+                <ASP:ListItem value="45" selected="True">WebCam - (R$ 45,00)</ASP:ListItem>
+                <ASP:ListItem value="55">Leitor de Digital - (R$ 55,00)</ASP:ListItem>
+                <ASP:ListItem value="25">Joystick - R$ (25,00)</ASP:ListItem>
+              </ASP:CheckBoxList></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <ASP:Button id="Button7" runat="server" text="Adicionar tudo ao Carrinho"></ASP:Button></td>
+            <td></td>
+          </tr>
+      </table>
+      <p>
+      <hr width="100%" size="1"></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p>
+        <table cellspacing="1" cellpadding="1" width="300" border="1">
+            <tr>
+              <td>Configuração Escolhida:</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <p>Placa Mãe: 
+                  <ASP:Label id="Label4" runat="server"></ASP:Label>
+                </p>
+                <p>&nbsp;</p>
+                <p>Memória RAM: 
+                  <ASP:Label id="Label5" runat="server"></ASP:Label>
+                </p>
+                <p>Memória HD: 
+                  <ASP:Label id="Label6" runat="server"></ASP:Label>
+                </p>
+                <p>Dispositivos de Entrada e Saída: 
+                  <ASP:Label id="Label7" runat="server"></ASP:Label>
+                </p>
+                <p>Acessórios: 
+                  <ASP:Label id="Label8" runat="server"></ASP:Label>
+                </p>
+                <p>&nbsp;</p></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Total:&nbsp;&nbsp;&nbsp; 
+                <ASP:Label id="Label1" runat="server">Label</ASP:Label></td>
+              <td></td>
+              <td></td>
+            </tr>
+        </table></p>
+     </form>
+  </body>
+</html>

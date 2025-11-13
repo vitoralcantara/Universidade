@@ -1,0 +1,3 @@
+WebCam=R$50,00
+LeitordeDigital=R$50,00
+Joystick=R$

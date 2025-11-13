@@ -1,0 +1,25 @@
+<%@ Page language="c#" Debug="true" Codebehind="WebFormLogin.pas" AutoEventWireup="false" Inherits="WebFormLogin.TWebForm2" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+     <form runat="server">
+      <p>Login: 
+        <ASP:TextBox id="TextBox1" runat="server" width="272px"></ASP:TextBox>
+      </p>
+      <p>Senha:
+        <ASP:TextBox id="TextBox2" runat="server" width="273px"></ASP:TextBox>
+      </p>
+      <p>
+        <ASP:Button id="Button1" runat="server" text="Login"></ASP:Button>
+      </p>
+      <p>
+        <ASP:Label id="Label1" runat="server">Label</ASP:Label>
+      </p>
+     </form>
+  </body>
+</html>
