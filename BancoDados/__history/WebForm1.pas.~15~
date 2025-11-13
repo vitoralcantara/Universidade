@@ -1,0 +1,181 @@
+
+unit WebForm1;
+
+interface
+
+uses
+  System.Collections, System.ComponentModel,
+  System.Data, System.Drawing, System.Web, System.Web.SessionState,
+  System.Web.UI, System.Web.UI.WebControls, System.Web.UI.HtmlControls, 
+  System.Data.SqlClient;
+
+type
+  TWebForm1 = class(System.Web.UI.Page)
+  {$REGION 'Designer Managed Code'}
+  strict private
+    procedure InitializeComponent;
+    procedure DataGrid1_SelectedIndexChanged(sender: System.Object; e: System.EventArgs);
+    procedure DataGrid1_PageIndexChanged(source: System.Object; e: System.Web.UI.WebControls.DataGridPageChangedEventArgs);
+    procedure DataGrid1_EditCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+    procedure DataGrid1_CancelCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+    procedure DataGrid1_DeleteCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+    procedure DataGrid1_UpdateCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+  {$ENDREGION}
+  strict private
+    procedure Page_Load(sender: System.Object; e: System.EventArgs);
+  strict protected
+    DataGrid1: System.Web.UI.WebControls.DataGrid;
+    LblMsg: System.Web.UI.WebControls.Label;
+    procedure OnInit(e: EventArgs); override;
+  private
+    { Private Declarations }
+  public
+    { Public Declarations }
+    procedure GetData;
+  end;
+
+implementation
+
+{$REGION 'Designer Managed Code'}
+/// <summary>
+/// Required method for Designer support -- do not modify
+/// the contents of this method with the code editor.
+/// </summary>
+procedure TWebForm1.InitializeComponent;
+begin
+  Include(Self.DataGrid1.PageIndexChanged, Self.DataGrid1_PageIndexChanged);
+  Include(Self.DataGrid1.CancelCommand, Self.DataGrid1_CancelCommand);
+  Include(Self.DataGrid1.EditCommand, Self.DataGrid1_EditCommand);
+  Include(Self.DataGrid1.UpdateCommand, Self.DataGrid1_UpdateCommand);
+  Include(Self.DataGrid1.DeleteCommand, Self.DataGrid1_DeleteCommand);
+  Include(Self.DataGrid1.SelectedIndexChanged, Self.DataGrid1_SelectedIndexChanged);
+  Include(Self.Load, Self.Page_Load);
+end;
+{$ENDREGION}
+ procedure TWebForm1.GetData;
+const
+c_cnstr = 'user id=sa;data source ="(local)";persist security info=False;initial catalog =northwind;password=senha;';
+c_sel   = 'select * from customers order by contactname';
+
+var
+sqlcn: SqlConnection;
+sqlDA: SqlDataAdapter;
+ds: DataSet;
+dt: DataTable;
+begin
+//Conexão com o banco de dados
+sqlcn := SqlConnection.Create(c_cnstr);
+//Comando SQL
+SqlDA := SqlDataAdapter.Create(c_sel,sqlcn);
+//Resultado
+ds := DataSet.Create;         // Cria o Dataset
+ sqlDA.Fill(ds, 'customers');  // Preenche o Dataset com o resultado do comando SQL
+dt := ds.Tables['customers']; // Carrega a tabela resultante
+
+//Liga Tabela com resultado da consulta no GridView
+DataGrid1.DataSource := dt.DefaultView;
+Databind;
+//Fecha conexão com o banco
+sqlcn.Close;
+
+end;
+
+procedure TWebForm1.DataGrid1_UpdateCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+const
+c_cnstr = 'user id=sa; data source="(local)",persist security info=False; initia catalog=northwind; password= ';
+c_sel= 'update  customers set ContactName=@ContactName, City= @City, customerID = @customerID' ;
+var
+Tb1,Tb2,Tb3 :TextBox;
+sqlcn: SqlConnection;
+cmd: SqlCommand;
+
+begin
+Tb1:=  e.Item.Cells[0].controls[0] as TextBox;
+Tb2:=  e.Item.Cells[1].controls[0] as TextBox;
+Tb3:=  e.Item.Cells[2].controls[0] as TextBox;
+
+LblMsg.Text:= 'Editado dados do cliente' + Tb1.Text;
+
+sqlcn:=SqlConnection.Create(c_cnstr);
+sqlcn.Open;
+
+cmd:= sqlcn.CreateCommand;
+cmd.CommandText:= c_sel;
+cmd.Parameters.Add('@customerID',Tb1);
+cmd.Parameters.Add('@ContactName',Tb2);
+cmd.Parameters.Add('@City',Tb3);
+cmd.ExecuteNonQuery;
+
+sqlcn.Close;
+
+GetData;
+
+
+end;
+
+procedure TWebForm1.DataGrid1_DeleteCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+const
+c_cnstr = 'user id=sa; data source="(local)",persist security info=False; initia catalog=northwind; password= ';
+c_sel= 'delete from customers where customerID = @customerID';
+
+var
+sqlcn: SqlConnection;
+cmd: SqlCommand;
+codigo: string;
+begin
+
+codigo:=  e.Item.Cells[0].Text;
+LblMsg.Text:= 'Excluido cliente'  + codigo;
+
+sqlcn:=SqlConnection.Create(c_cnstr);
+sqlcn.Open;
+
+cmd:= sqlcn.CreateCommand;
+cmd.CommandText:= c_sel;
+cmd.Parameters.Add('@customerID',codigo);
+cmd.ExecuteNonQuery;
+
+sqlcn.Close;
+
+GetData;
+end;
+
+procedure TWebForm1.DataGrid1_CancelCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+begin
+      DataGrid1.EditItemIndex:= -1;
+  GetData;
+end;
+
+procedure TWebForm1.DataGrid1_EditCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+begin
+  DataGrid1.EditItemIndex:= e.Item.ItemIndex;
+  GetData;
+  end;
+procedure TWebForm1.Page_Load(sender: System.Object; e: System.EventArgs);
+begin
+      // TODO: Put user code to initialize the page here
+  If Not Ispostback then GetData;
+end;
+
+procedure TWebForm1.OnInit(e: EventArgs);
+begin
+  //
+  // Required for Designer support
+  //
+  InitializeComponent;
+  inherited OnInit(e);
+end;
+
+procedure TWebForm1.DataGrid1_PageIndexChanged(source: System.Object; e: System.Web.UI.WebControls.DataGridPageChangedEventArgs);
+begin
+    DataGrid1.CurrentPageIndex := e.NewPageIndex;
+    GetData;
+end;
+
+procedure TWebForm1.DataGrid1_SelectedIndexChanged(sender: System.Object; e: System.EventArgs);
+begin
+
+end;
+
+end.
+

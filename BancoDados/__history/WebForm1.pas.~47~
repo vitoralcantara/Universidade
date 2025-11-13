@@ -1,0 +1,238 @@
+
+unit WebForm1;
+
+interface
+
+uses
+  System.Collections, System.ComponentModel,
+  System.Data, System.Drawing, System.Web, System.Web.SessionState,
+  System.Web.UI, System.Web.UI.WebControls, System.Web.UI.HtmlControls,
+  System.Data.SqlClient, System.Globalization;
+
+type
+  TWebForm1 = class(System.Web.UI.Page)
+  {$REGION 'Designer Managed Code'}
+  strict private
+    procedure InitializeComponent;
+    procedure DataGrid1_PageIndexChanged(source: System.Object; e: System.Web.UI.WebControls.DataGridPageChangedEventArgs);
+    procedure DataGrid1_EditCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+    procedure DataGrid1_CancelCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+    procedure DataGrid1_DeleteCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+    procedure DataGrid1_UpdateCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+    procedure Button1_Click(sender: System.Object; e: System.EventArgs);
+    procedure SqlConnection1_InfoMessage(sender: System.Object; e: System.Data.SqlClient.SqlInfoMessageEventArgs);
+  {$ENDREGION}
+  strict private
+    procedure Page_Load(sender: System.Object; e: System.EventArgs);
+  strict protected
+    DataGrid1: System.Web.UI.WebControls.DataGrid;
+    LblMsg: System.Web.UI.WebControls.Label;
+    sqlSelectCommand1: System.Data.SqlClient.SqlCommand;
+    sqlInsertCommand1: System.Data.SqlClient.SqlCommand;
+    sqlUpdateCommand1: System.Data.SqlClient.SqlCommand;
+    sqlDeleteCommand1: System.Data.SqlClient.SqlCommand;
+    SqlDataAdapter1: System.Data.SqlClient.SqlDataAdapter;
+    SqlConnection1: System.Data.SqlClient.SqlConnection;
+    DataSet1: System.Data.DataSet;
+    Label1: System.Web.UI.WebControls.Label;
+    Label2: System.Web.UI.WebControls.Label;
+    Label3: System.Web.UI.WebControls.Label;
+    TextBox1: System.Web.UI.WebControls.TextBox;
+    TextBox2: System.Web.UI.WebControls.TextBox;
+    TextBox3: System.Web.UI.WebControls.TextBox;
+    Button1: System.Web.UI.WebControls.Button;
+    procedure OnInit(e: EventArgs); override;
+  private
+    { Private Declarations }
+  public
+    { Public Declarations }
+    procedure GetData;
+  end;
+
+implementation
+
+{$REGION 'Designer Managed Code'}
+/// <summary>
+/// Required method for Designer support -- do not modify
+/// the contents of this method with the code editor.
+/// </summary>
+procedure TWebForm1.InitializeComponent;
+begin
+  Self.sqlSelectCommand1 := System.Data.SqlClient.SqlCommand.Create;
+  Self.SqlConnection1 := System.Data.SqlClient.SqlConnection.Create;
+  Self.sqlInsertCommand1 := System.Data.SqlClient.SqlCommand.Create;
+  Self.sqlUpdateCommand1 := System.Data.SqlClient.SqlCommand.Create;
+  Self.sqlDeleteCommand1 := System.Data.SqlClient.SqlCommand.Create;
+  Self.SqlDataAdapter1 := System.Data.SqlClient.SqlDataAdapter.Create;
+  Self.DataSet1 := System.Data.DataSet.Create;
+  (System.ComponentModel.ISupportInitialize(Self.DataSet1)).BeginInit;
+  Include(Self.DataGrid1.PageIndexChanged, Self.DataGrid1_PageIndexChanged);
+  Include(Self.DataGrid1.CancelCommand, Self.DataGrid1_CancelCommand);
+  Include(Self.DataGrid1.EditCommand, Self.DataGrid1_EditCommand);
+  Include(Self.DataGrid1.UpdateCommand, Self.DataGrid1_UpdateCommand);
+  Include(Self.DataGrid1.DeleteCommand, Self.DataGrid1_DeleteCommand);
+  Include(Self.Button1.Click, Self.Button1_Click);
+  // 
+  // sqlSelectCommand1
+  // 
+  Self.sqlSelectCommand1.CommandText := 'select customerid, contactname,city' +
+  ' from customers order by contactname';
+  Self.sqlSelectCommand1.Connection := Self.SqlConnection1;
+  // 
+  // SqlConnection1
+  // 
+  Self.SqlConnection1.ConnectionString := 'user id=sa;data source="(local)";' +
+  'persist security info=True;initial catalog=northwind;password=senha';
+  Include(Self.SqlConnection1.InfoMessage, Self.SqlConnection1_InfoMessage);
+  // 
+  // sqlInsertCommand1
+  // 
+  Self.sqlInsertCommand1.CommandText := 'insert into Employees(LastName,Firs' +
+  'tName,EmployeeID, Address, City)values (@LastName,@FirstName,@EmployeeID,' +
+  ' @Address, @City)';
+  Self.sqlInsertCommand1.Connection := Self.SqlConnection1;
+  // 
+  // sqlUpdateCommand1
+  // 
+  Self.sqlUpdateCommand1.CommandText := 'update  Employees set LastName=@Las' +
+  'tName, Address= @Address, City=@City where EmployeeID = @EmployeeID';
+  Self.sqlUpdateCommand1.Connection := Self.SqlConnection1;
+  // 
+  // sqlDeleteCommand1
+  // 
+  Self.sqlDeleteCommand1.CommandText := 'delete from Employees where Employe' +
+  'eID = @EmployeeID';
+  Self.sqlDeleteCommand1.Connection := Self.SqlConnection1;
+  // 
+  // SqlDataAdapter1
+  // 
+  Self.SqlDataAdapter1.DeleteCommand := Self.sqlDeleteCommand1;
+  Self.SqlDataAdapter1.InsertCommand := Self.sqlInsertCommand1;
+  Self.SqlDataAdapter1.SelectCommand := Self.sqlSelectCommand1;
+  Self.SqlDataAdapter1.UpdateCommand := Self.sqlUpdateCommand1;
+  // 
+  // DataSet1
+  // 
+  Self.DataSet1.DataSetName := 'NewDataSet';
+  Self.DataSet1.Locale := System.Globalization.CultureInfo.Create('pt-BR');
+  Include(Self.Load, Self.Page_Load);
+  (System.ComponentModel.ISupportInitialize(Self.DataSet1)).EndInit;
+end;
+{$ENDREGION}
+ procedure TWebForm1.GetData;
+begin
+
+SqlDataAdapter1.Fill(DataSet1, 'Employees');
+DataGrid1.DataSource:= DataSet1.Tables['Employees'].DefaultView;
+DataBind;
+end;
+
+procedure TWebForm1.SqlConnection1_InfoMessage(sender: System.Object; e: System.Data.SqlClient.SqlInfoMessageEventArgs);
+begin
+
+end;
+
+procedure TWebForm1.Button1_Click(sender: System.Object; e: System.EventArgs);
+begin
+  LblMsg.Text:= 'Inserindo dados do cliente' + TextBox1.Text;
+
+  SqlConnection1.Open;
+  SqlDataAdapter1.InsertCommand.Parameters.Add('@customerID',TextBox1.Text);
+  SqlDataAdapter1.InsertCommand.Parameters.Add('@ContactName',TextBox2.Text);
+  SqlDataAdapter1.InsertCommand.Parameters.Add('@CompanyName',TextBox2.Text);
+  SqlDataAdapter1.InsertCommand.Parameters.Add('@City',TextBox3.Text);
+  SqlDataAdapter1.InsertCommand.Parameters.Add('@PostalCode','00000');
+  SqlDataAdapter1.InsertCommand.Parameters.Add('@Region','Eastern');
+    SqlDataAdapter1.InsertCommand.ExecuteNonQuery;
+
+    SqlConnection1.Close;
+
+    DataGrid1.EditItemIndex:=-1;
+    TextBox1.Text:= '';
+    TextBox2.Text:= '';
+    TextBox3.Text:= '';
+    GetData;
+end;
+
+procedure TWebForm1.DataGrid1_UpdateCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+var
+Tb1,Tb2,Tb3,Tb4,Tb5 :TextBox;
+begin
+Tb1:=  e.Item.Cells[0].controls[0] as TextBox;
+Tb2:=  e.Item.Cells[1].controls[0] as TextBox;
+Tb3:=  e.Item.Cells[2].controls[0] as TextBox;
+Tb4:=  e.Item.Cells[3].controls[0] as TextBox;
+Tb5:=  e.Item.Cells[4].controls[0] as TextBox;
+
+LblMsg.Text:= 'Editado dados do cliente' + Tb1.Text;
+
+SqlConnection1.Open;
+
+SqlDataAdapter1.UpdateCommand.Parameters.Add('@EmployeeID',Tb1.Text);
+SqlDataAdapter1.UpdateCommand.Parameters.Add('@FirstName',Tb2.Text);
+SqlDataAdapter1.UpdateCommand.Parameters.Add('@LastName',Tb3.Text);
+SqlDataAdapter1.UpdateCommand.Parameters.Add('@Address',Tb4.Text);
+SqlDataAdapter1.UpdateCommand.Parameters.Add('@City',Tb5.Text);
+SqlDataAdapter1.UpdateCommand.ExecuteNonQuery;
+
+SqlConnection1.Close;
+
+DataGrid1.EditItemIndex:= -1;
+GetData;
+
+
+end;
+
+procedure TWebForm1.DataGrid1_DeleteCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+var
+codigo: string;
+begin
+
+codigo:=  e.Item.Cells[0].Text;
+LblMsg.Text:= 'Excluido cliente'  + codigo;
+
+
+SqlConnection1.Open;
+
+SqlDataAdapter1.DeleteCommand.Parameters.Add('@EmployeeID',codigo);
+SqlDataAdapter1.DeleteCommand.ExecuteNonQuery;
+
+SqlConnection1.Close;
+
+GetData;
+end;
+
+procedure TWebForm1.DataGrid1_CancelCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+begin
+      DataGrid1.EditItemIndex:= -1;
+  GetData;
+end;
+
+procedure TWebForm1.DataGrid1_EditCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
+begin
+  DataGrid1.EditItemIndex:= e.Item.ItemIndex;
+  GetData;
+  end;
+procedure TWebForm1.Page_Load(sender: System.Object; e: System.EventArgs);
+begin
+      // TODO: Put user code to initialize the page here
+  If Not Ispostback then GetData;
+end;
+
+procedure TWebForm1.OnInit(e: EventArgs);
+begin
+  //
+  // Required for Designer support
+  //
+  InitializeComponent;
+  inherited OnInit(e);
+end;
+
+procedure TWebForm1.DataGrid1_PageIndexChanged(source: System.Object; e: System.Web.UI.WebControls.DataGridPageChangedEventArgs);
+begin
+    DataGrid1.CurrentPageIndex := e.NewPageIndex;
+    GetData;
+end;
+
+end.
+
