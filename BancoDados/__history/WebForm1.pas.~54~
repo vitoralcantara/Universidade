@@ -20,7 +20,8 @@ type
     procedure DataGrid1_DeleteCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
     procedure DataGrid1_UpdateCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
     procedure Button1_Click(sender: System.Object; e: System.EventArgs);
-    {$ENDREGION}
+    procedure SqlConnection1_StateChange(sender: System.Object; e: System.Data.StateChangeEventArgs);
+  {$ENDREGION}
   strict private
     procedure Page_Load(sender: System.Object; e: System.EventArgs);
   strict protected
@@ -81,8 +82,8 @@ begin
   // 
   // sqlSelectCommand1
   // 
-  Self.sqlSelectCommand1.CommandText := 'select EmployeeID, FirstName,LastNa' +
-  'me,Address,City from Employees order by FirstName';
+  Self.sqlSelectCommand1.CommandText := 'select customerid, contactname,city' +
+  ' from customers order by contactname';
   Self.sqlSelectCommand1.Connection := Self.SqlConnection1;
   // 
   // SqlConnection1
@@ -93,7 +94,7 @@ begin
   // sqlInsertCommand1
   // 
   Self.sqlInsertCommand1.CommandText := 'insert into Employees(LastName,Firs' +
-  'tName,EmployeeID, Address, City) values(@LastName,@FirstName,@EmployeeID,' +
+  'tName,EmployeeID, Address, City)values (@LastName,@FirstName,@EmployeeID,' +
   ' @Address, @City)';
   Self.sqlInsertCommand1.CommandTimeout := 0;
   Self.sqlInsertCommand1.Connection := Self.SqlConnection1;
@@ -142,7 +143,10 @@ SqlDataAdapter1.Fill(DataSet1, 'Employees');
 DataBind;
 end;
 
+procedure TWebForm1.SqlConnection1_StateChange(sender: System.Object; e: System.Data.StateChangeEventArgs);
+begin
 
+end;
 
 procedure TWebForm1.Button1_Click(sender: System.Object; e: System.EventArgs);
 begin

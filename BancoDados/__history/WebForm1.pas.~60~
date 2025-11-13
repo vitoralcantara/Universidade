@@ -81,8 +81,8 @@ begin
   // 
   // sqlSelectCommand1
   // 
-  Self.sqlSelectCommand1.CommandText := 'select EmployeeID, FirstName,LastNa' +
-  'me,Address,City from Employees order by FirstName';
+  Self.sqlSelectCommand1.CommandText := 'select EmployeeID, FirstName,LastName,Address,City' +
+  ' from Employees order by FirstName';
   Self.sqlSelectCommand1.Connection := Self.SqlConnection1;
   // 
   // SqlConnection1

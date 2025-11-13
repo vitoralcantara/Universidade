@@ -20,7 +20,8 @@ type
     procedure DataGrid1_DeleteCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
     procedure DataGrid1_UpdateCommand(source: System.Object; e: System.Web.UI.WebControls.DataGridCommandEventArgs);
     procedure Button1_Click(sender: System.Object; e: System.EventArgs);
-    {$ENDREGION}
+    procedure SqlConnection1_InfoMessage(sender: System.Object; e: System.Data.SqlClient.SqlInfoMessageEventArgs);
+  {$ENDREGION}
   strict private
     procedure Page_Load(sender: System.Object; e: System.EventArgs);
   strict protected
@@ -81,35 +82,33 @@ begin
   // 
   // sqlSelectCommand1
   // 
-  Self.sqlSelectCommand1.CommandText := 'select EmployeeID, FirstName,LastNa' +
-  'me,Address,City from Employees order by FirstName';
+  Self.sqlSelectCommand1.CommandText := 'select customerid, contactname,city' +
+  ' from customers order by contactname';
   Self.sqlSelectCommand1.Connection := Self.SqlConnection1;
   // 
   // SqlConnection1
   // 
   Self.SqlConnection1.ConnectionString := 'user id=sa;data source="(local)";' +
   'persist security info=True;initial catalog=northwind;password=senha';
+  Include(Self.SqlConnection1.InfoMessage, Self.SqlConnection1_InfoMessage);
   // 
   // sqlInsertCommand1
   // 
   Self.sqlInsertCommand1.CommandText := 'insert into Employees(LastName,Firs' +
-  'tName,EmployeeID, Address, City) values(@LastName,@FirstName,@EmployeeID,' +
+  'tName,EmployeeID, Address, City)values (@LastName,@FirstName,@EmployeeID,' +
   ' @Address, @City)';
-  Self.sqlInsertCommand1.CommandTimeout := 0;
   Self.sqlInsertCommand1.Connection := Self.SqlConnection1;
   // 
   // sqlUpdateCommand1
   // 
   Self.sqlUpdateCommand1.CommandText := 'update  Employees set LastName=@Las' +
   'tName, Address= @Address, City=@City where EmployeeID = @EmployeeID';
-  Self.sqlUpdateCommand1.CommandTimeout := 0;
   Self.sqlUpdateCommand1.Connection := Self.SqlConnection1;
   // 
   // sqlDeleteCommand1
   // 
   Self.sqlDeleteCommand1.CommandText := 'delete from Employees where Employe' +
   'eID = @EmployeeID';
-  Self.sqlDeleteCommand1.CommandTimeout := 0;
   Self.sqlDeleteCommand1.Connection := Self.SqlConnection1;
   // 
   // SqlDataAdapter1
@@ -142,7 +141,10 @@ SqlDataAdapter1.Fill(DataSet1, 'Employees');
 DataBind;
 end;
 
+procedure TWebForm1.SqlConnection1_InfoMessage(sender: System.Object; e: System.Data.SqlClient.SqlInfoMessageEventArgs);
+begin
 
+end;
 
 procedure TWebForm1.Button1_Click(sender: System.Object; e: System.EventArgs);
 begin

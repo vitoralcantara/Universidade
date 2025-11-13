@@ -11,7 +11,7 @@
       <p>Cadastro de Cliente</p>
       <hr style="WIDTH: 100%; HEIGHT: 1px" width="100%" size="1">
       <p>&nbsp;
-        <ASP:DataGrid id="DataGrid1" runat="server" width="529px" height="565px" allowpaging="True" pagesize="8" bordercolor="White" borderstyle="Ridge" borderwidth="2px" cellspacing="1" backcolor="White" cellpadding="3" gridlines="None" autogeneratecolumns="False" datasource="<%# DataSet1 %>" allowsorting="True">
+        <ASP:DataGrid id="DataGrid1" runat="server" width="529px" height="565px" allowpaging="True" pagesize="8" bordercolor="White" borderstyle="Ridge" borderwidth="2px" cellspacing="1" backcolor="White" cellpadding="3" gridlines="None" autogeneratecolumns="False" datasource="<%# DataSet1 %>">
           <FooterStyle forecolor="Black" backcolor="#C6C3C6"></FooterStyle>
           <SelectedItemStyle font-bold="True" forecolor="White" backcolor="#9471DE"></SelectedItemStyle>
           <ItemStyle forecolor="Black" backcolor="#DEDFDE"></ItemStyle>
@@ -25,6 +25,7 @@
             <ASP:ButtonColumn text="Selecionar" buttontype="PushButton" commandname="Select"></ASP:ButtonColumn>
             <ASP:EditCommandColumn buttontype="PushButton" updatetext="Atualizar" canceltext="Cancelar" edittext="Editar"></ASP:EditCommandColumn>
             <ASP:ButtonColumn text="Excluir" buttontype="PushButton" commandname="Delete"></ASP:ButtonColumn>
+            <ASP:HyperLinkColumn text="P&#225;gina Pessoal" navigateurl="WebForm2.aspx"></ASP:HyperLinkColumn>
           </Columns>
           <PagerStyle horizontalalign="Center" forecolor="Black" backcolor="#C6C3C6" mode="NumericPages"></PagerStyle></ASP:DataGrid>
       </p>
@@ -32,8 +33,6 @@
       </p>
       <p>
         <hr width="100%" size="1"></p>
-      <p></p>
-      <p></p>
       <p></p>
       <p></p>
       <p></p>
