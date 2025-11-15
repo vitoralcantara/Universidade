@@ -1,0 +1,15 @@
+tbxFirstName=
+tbxLastName=
+tbxTitle=
+tbxEmail=
+tbxCompany=
+tbxAddress1=
+tbxAddress2=
+tbxCity=
+tbxPostalCode=
+tbxTelephone=
+tbxFax=
+tbxURL=
+ddlCountry=United States
+ddlState=Alabama 
+cbxFreeStuff=True

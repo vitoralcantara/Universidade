@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<nodeSet>
+  <view uin="ni3k0fbfoewbj5n">
+    <property name="$name" value="default" />
+    <property name="$metaclass" value="Package Diagram" />
+    <reference referencedUin="source:d4dnImages:ImageForm">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="source:d4dnImages:ImageForm.TWebForm1">
+        <reference referencedUin="source:d4dnImages:ImageForm.TWebForm1.InitializeComponent" />
+        <reference referencedUin="source:d4dnImages:ImageForm.TWebForm1.Page_Load" />
+        <reference referencedUin="source:d4dnImages:ImageForm.TWebForm1.OnInit" />
+      </reference>
+    </reference>
+    <reference referencedUin="source:d4dnImages:Global">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+    <reference referencedUin="source:d4dnImages:MainForm">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="source:d4dnImages:MainForm.TWebForm1">
+        <reference referencedUin="source:d4dnImages:MainForm.TWebForm1.InitializeComponent" />
+        <reference referencedUin="source:d4dnImages:MainForm.TWebForm1.ImageButton1_Click" />
+        <reference referencedUin="source:d4dnImages:MainForm.TWebForm1.Page_Load" />
+        <reference referencedUin="source:d4dnImages:MainForm.TWebForm1.ImageButton1" />
+        <reference referencedUin="source:d4dnImages:MainForm.TWebForm1.ImageButton2" />
+        <reference referencedUin="source:d4dnImages:MainForm.TWebForm1.OnInit" />
+      </reference>
+    </reference>
+  </view>
+</nodeSet>

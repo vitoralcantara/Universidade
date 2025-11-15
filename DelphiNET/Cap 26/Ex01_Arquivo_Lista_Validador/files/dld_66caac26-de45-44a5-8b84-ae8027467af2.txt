@@ -1,0 +1,15 @@
+tbxFirstName=xavier
+tbxLastName=pacheco
+tbxTitle=
+tbxEmail=xavier@xapware.com
+tbxCompany=
+tbxAddress1=
+tbxAddress2=
+tbxCity=
+tbxPostalCode=
+tbxTelephone=
+tbxFax=
+tbxURL=
+ddlCountry=United States
+ddlState=Alabama 
+cbxFreeStuff=True

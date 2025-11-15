@@ -1,0 +1,4 @@
+/utf8output
+/out:.\bin\d4dnImages.dll
+ /res:"C:\DelphiNET\Cap 26\Ex14_ImagemMiniatura\MainForm.TMainForm.resources"
+ /res:"C:\DelphiNET\Cap 26\Ex14_ImagemMiniatura\ImageForm.TImageForm.resources"

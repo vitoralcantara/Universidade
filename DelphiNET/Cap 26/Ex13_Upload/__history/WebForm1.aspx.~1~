@@ -1,0 +1,28 @@
+<%@ Page language="c#" Debug="true" Codebehind="WebForm1.pas" AutoEventWireup="True" Inherits="WebForm1.TWebForm1" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<script runat="server">
+    void btnSubmit_Click(Object sender, EventArgs e){
+    String fName = System.IO.Path.GetFileName(UpFile.PostedFile.FileName);
+    String pName = Server.MapPath(System.String.Format(".\\Files\\{0}", fName));
+    UpFile.PostedFile.SaveAs(pName);
+    Response.Write(pName);
+  }
+</script>
+
+<html>
+  <head>
+    <title></title>
+    <meta name="GENERATOR" content="Borland Package Library 7.1">
+  </head>
+
+  <body ms_positioning="GridLayout">
+  <form enctype="multipart/form-data" runat="server">
+    <input id=UpFile type=file name=UpFile runat="server">
+    <asp:button id=Button1 
+                style="Z-INDEX: 1; LEFT: 6px; POSITION: absolute; TOP: 62px" 
+                onclick=btnSubmit_Click runat="server" text="Upload File">
+    </asp:button>
+  </form>
+</body>
+</html>
+

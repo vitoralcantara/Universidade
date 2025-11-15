@@ -1,0 +1,15 @@
+tbxFirstName=George 
+tbxLastName=Azevedo
+tbxTitle=Azevedo
+tbxEmail=Azevedo@digi.com.br
+tbxCompany=Azevedo
+tbxAddress1=Azevedo
+tbxAddress2=Azevedo
+tbxCity=Azevedo
+tbxPostalCode=59082260
+tbxTelephone=32362305
+tbxFax=32362305
+tbxURL=www.teste.com.br
+ddlCountry=Brazil
+ddlState=RIO GRANDE DO NORTE
+cbxFreeStuff=True

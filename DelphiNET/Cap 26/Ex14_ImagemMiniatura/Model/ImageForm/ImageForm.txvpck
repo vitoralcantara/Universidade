@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<nodeSet>
+  <view uin="363f8sc6q">
+    <property name="$name" value="ImageForm" />
+    <property name="$metaclass" value="Package Diagram" />
+    <reference referencedUin="source:d4dnImages:ImageForm.TWebForm1">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="source:d4dnImages:ImageForm.TWebForm1.InitializeComponent" />
+      <reference referencedUin="source:d4dnImages:ImageForm.TWebForm1.Page_Load" />
+      <reference referencedUin="source:d4dnImages:ImageForm.TWebForm1.OnInit" />
+    </reference>
+  </view>
+</nodeSet>

@@ -1,0 +1,18 @@
+<%@ Page language="c#" Debug="true" Codebehind="MainForm.pas" AutoEventWireup="false" Inherits="MainForm.TMainForm" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body ms_positioning="GridLayout">
+  <form runat="server">
+    <asp:imagebutton id="ImageButton1" 
+                     style="Z-INDEX: 1; LEFT: 14px; POSITION: absolute; TOP: 30px" 
+                     runat="server" imageurl="ImageForm.aspx" width="120px" height="90px">
+    </asp:imagebutton>
+      <ASP:Label id="Label1" style="Z-INDEX: 2; LEFT: 14px; POSITION: absolute; TOP: 6px" runat="server">Clique na imagem para ampliar</ASP:Label>
+  </form>
+</body>
+</html>

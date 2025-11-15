@@ -1,0 +1,139 @@
+
+unit WebForm1;
+
+interface
+
+uses
+  System.Collections, System.ComponentModel,
+  System.Data, System.Drawing, System.Web, System.Web.SessionState,
+  System.Web.UI, System.Web.UI.WebControls, System.Web.UI.HtmlControls,
+  System.IO, System.Drawing.Imaging;
+
+type
+  TWebForm1 = class(System.Web.UI.Page)
+  {$REGION 'Designer Managed Code'}
+  strict private
+    procedure InitializeComponent;
+    procedure ImageButton1_Click(sender: System.Object; e: System.Web.UI.ImageClickEventArgs);
+  {$ENDREGION}
+  strict private
+    procedure Page_Load(sender: System.Object; e: System.EventArgs);
+  strict protected
+    Table1: System.Web.UI.WebControls.Table;
+    procedure OnInit(e: EventArgs); override;
+  private
+    { Private Declarations }
+    procedure GenerateThumbs;
+  public
+    { Public Declarations }
+  end;
+
+implementation
+
+uses System.Web.UI;
+
+{$REGION 'Designer Managed Code'}
+/// <summary>
+/// Required method for Designer support -- do not modify
+/// the contents of this method with the code editor.
+/// </summary>
+procedure TWebForm1.InitializeComponent;
+begin
+  Include(Self.Load, Self.Page_Load);
+end;
+{$ENDREGION}
+
+procedure TWebForm1.Page_Load(sender: System.Object;
+  e: System.EventArgs);
+begin
+  GenerateThumbs;
+end;
+
+procedure TWebForm1.OnInit(e: EventArgs);
+begin
+  //
+  // Required for Designer support
+  //
+  InitializeComponent;
+  inherited OnInit(e);
+end;
+
+procedure TWebForm1.ImageButton1_Click(sender: System.Object;
+  e: System.Web.UI.ImageClickEventArgs);
+var
+  fName: String;
+begin
+  with sender as ImageButton do
+  begin
+    // Le url do botão (thumnail)
+    fName := ImageUrl;
+    fName := System.IO.Path.GetFileName(fName);
+    fName := fName.Remove(0, 3);  // remove cabeçalho tn_
+    // Redireciona para a imagem
+    Response.Redirect('images\'+fName);
+  end;
+end;
+
+procedure TWebForm1.GenerateThumbs;
+var
+  fArray: array of String;
+  i, lin, col, maxcol: integer;
+  bm: Bitmap;
+  tni: System.Drawing.Image;
+  im: System.Drawing.Image;
+  fName: String;
+  fs: FileStream;
+  ib: ImageButton;
+  lb : Label;
+begin
+  lin := 0; col :=0; maxcol := 2;
+  // Le lista de arquivos do diretorio de imagens
+  fArray := Directory.GetFiles(Request.PhysicalApplicationPath+'images\', '*.jpg');
+  for i := Low(fArray) to High(fArray) do
+  begin
+    // Le nome do arquivo
+    fName := System.IO.Path.GetFileName(fArray[i]);
+    // Acrescenta cabeçalho tn_ no nome do arquivo
+    fName := 'tn_'+fName;
+    fName := Request.PhysicalApplicationPath+'thumbs\'+fName;
+    if not System.IO.File.Exists(fName) then
+    begin
+      // Le imagem
+      im := System.Drawing.Image.FromFile(fArray[i]);
+      // Extrai thumbnail da imagem
+      tni := im.GetThumbNailImage(90, 120, nil, IntPtr.Zero);
+      // Cria arquivo bmp do thumbnail
+      bm := Bitmap.Create(tni);
+      fs := FileStream.Create(fName, FileMode.OpenOrCreate,
+        FileAccess.Write);
+      try
+        bm.Save(fs, ImageFormat.Jpeg);
+      finally
+        fs.Close;
+      end;
+    end;
+    // Insere imagebutton no painel
+    ib := ImageButton.Create;
+    ib.ImageUrl := fName;
+    ib.Attributes['runat'] := '"server"';
+    // Insere metodo que trata o evento
+    Include(ib.Click, ImageButton1_Click);
+    // Insere botão no painel
+    //Panel1.Controls.Add(ib);
+    // Insere botão na tabela
+
+    lb := System.Web.UI.WebControls.Label.Create;
+    lb.text :=
+
+    Table1.Rows[lin].Cells[col].Controls.Add(ib);
+    col := col + 1;
+    if col = maxcol then
+    begin
+      col := 0;
+      lin := lin + 1;
+    end;
+  end;
+end;
+
+end.
+

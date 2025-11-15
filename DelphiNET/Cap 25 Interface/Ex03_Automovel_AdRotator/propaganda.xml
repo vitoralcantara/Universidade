@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Advertisements>
+  <Ad>
+	<ImageUrl>imagens\Loja001.gif</ImageUrl>
+    <NavigateUrl>http://www.microsoft.com/</NavigateUrl>
+	<AlternateText>Microsoft</AlternateText>
+	<Keyword>Imagem GIF</Keyword>
+	<Impressions>10</Impressions>
+  </Ad>
+  <Ad>
+	<ImageUrl>imagens\Loja002.gif</ImageUrl>
+    <NavigateUrl>http://www.cefetrn.br/</NavigateUrl>
+	<AlternateText>Microsoft</AlternateText>
+	<Keyword>Imagem GIF</Keyword>
+	<Impressions>10</Impressions>
+  </Ad>
+  <Ad>
+	<ImageUrl>imagens\Loja003.gif</ImageUrl>
+    <NavigateUrl>http://www.folha.com.br/</NavigateUrl>
+	<AlternateText>Microsoft</AlternateText>
+	<Keyword>Imagem GIF</Keyword>
+	<Impressions>10</Impressions>
+  </Ad>
+  <Ad>
+	<ImageUrl>imagens\img02.jpg</ImageUrl>
+	<NavigateUrl>http://www.cefetrn.br/</NavigateUrl>
+	<AlternateText>CEFET/RN</AlternateText>
+	<Keyword>Imagem JPG</Keyword>
+	<Impressions>10</Impressions>
+  </Ad>
+  <Ad>
+    <ImageUrl>imagens\img03.jpg</ImageUrl>
+	<NavigateUrl>http://www.codegear.com/</NavigateUrl>
+	<AlternateText>CodeGear</AlternateText>
+	<Keyword>imagens\Imagem JPG</Keyword>
+	<Impressions>10</Impressions>
+  </Ad>
+</Advertisements>

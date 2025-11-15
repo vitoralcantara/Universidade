@@ -1,0 +1,240 @@
+<%@ Page Language="c#" Debug="true" codebehind="DwnLdForm.pas" autoeventwireup="true" Inherits="DwnLdForm.TWebForm1" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title></title> 
+    <meta content="Borland Package Library 7.1" name="GENERATOR" />
+</head>
+<body ms_positioning="GridLayout">
+  <form runat="server">
+    <p>
+      <asp:label id=Label1 style="LEFT: 14px; TOP: 14px" runat="server" 
+                 height="26px">       Welcome to the download page for XYZ Product . Please take a moment to 
+      provide us the following information.       </asp:label><br>
+    </p>
+    <p>
+      <br>&nbsp;
+    </p>
+    <table style="LEFT: 7px; WIDTH: 503px; POSITION: absolute; TOP: 94px" 
+           cellspacing=1 cellpadding=1 width=503 border=0>
+      <tbody>
+        <tr>
+          <td rowspan=2>
+            <asp:label id=Label4 runat="server">First Name</asp:label>
+          </td>
+          <td style="WIDTH: 298px" rowspan=2>
+            <asp:textbox id=tbxFirstName runat="server" 
+                         width="322px">
+            </asp:textbox>
+          </td>
+          <td>
+            <asp:requiredfieldvalidator id=RequiredFieldValidator1 
+                                        runat="server" 
+                                        errormessage="First name required" 
+                                        controltovalidate="tbxFirstName">
+            </asp:requiredfieldvalidator>
+          </td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label5 runat="server">Last Name</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:textbox id=tbxLastName runat="server" 
+                         width="322px">
+            </asp:textbox>
+          </td>
+          <td>
+            <asp:requiredfieldvalidator id=RequiredFieldValidator2 
+                                        runat="server" width="165px" 
+                                        errormessage="Last name required" 
+                                        controltovalidate="tbxLastName" 
+                                        height="14px">
+            </asp:requiredfieldvalidator>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label6 runat="server">Title</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:textbox id=tbxTitle runat="server" width="322px">
+            </asp:textbox>
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label7 runat="server">EMail</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:textbox id=tbxEmail runat="server" width="322px">
+            </asp:textbox>
+          </td>
+          <td>
+            <asp:requiredfieldvalidator id=RequiredFieldValidator3 
+                                        style="LEFT: 470px; TOP: 78px" 
+                                        runat="server" width="93px" 
+                                        errormessage="Email required" 
+                                        controltovalidate="tbxEmail" 
+                                        height="19" display="Dynamic">
+            </asp:requiredfieldvalidator>
+            <asp:regularexpressionvalidator id=RegularExpressionValidator1 
+                                            style="LEFT: 574px; TOP: 86px" 
+                                            runat="server" width="164px" 
+                                            errormessage="Please enter a valid email" 
+                                            controltovalidate="tbxEmail" 
+                                            height="16px" display="Dynamic" 
+                                            validationexpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
+            </asp:regularexpressionvalidator>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label8 runat="server">Company</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:textbox id=tbxCompany runat="server" 
+                         width="322px">
+            </asp:textbox>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label9 runat="server">Address 1</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:textbox id=tbxAddress1 runat="server" 
+                         width="322px">
+            </asp:textbox>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label10 runat="server">Address 2</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:textbox id=tbxAddress2 runat="server" 
+                         width="322px">
+            </asp:textbox>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label11 runat="server">City</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:textbox id=tbxCity runat="server" width="322px">
+            </asp:textbox>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label12 runat="server">State/Province/Other</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:dropdownlist id=ddlState runat="server" 
+                              width="320px" height="22">
+            </asp:dropdownlist>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label13 runat="server">Postal Code</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:textbox id=tbxPostalCode runat="server" 
+                         width="322px">
+            </asp:textbox>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label14 runat="server">Country</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:dropdownlist id=ddlCountry runat="server" 
+                              width="320px" height="22">
+            </asp:dropdownlist>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label15 runat="server">Telephone</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:textbox id=tbxTelephone runat="server" 
+                         width="322px">
+            </asp:textbox>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label16 runat="server">Fax</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:textbox id=tbxFax runat="server" width="322px">
+            </asp:textbox>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id=Label17 runat="server">URL</asp:label>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:textbox id=tbxURL runat="server" width="322px">
+            </asp:textbox>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td style="WIDTH: 298px">
+            <asp:checkbox id=cbxFreeStuff runat="server" 
+                          width="176px" height="20" text="Send Free Stuff" 
+                          checked="True">
+            </asp:checkbox>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td style="WIDTH: 298px">&nbsp;
+            <asp:button id=btnSubmit runat="server" text="Submit">
+            </asp:button>&nbsp;&nbsp; 
+            <input style="WIDTH: 57px; HEIGHT: 24px" type=reset 
+                   size=21 value=Reset>
+          </td>
+          <td>&nbsp;&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</body>
+</html>

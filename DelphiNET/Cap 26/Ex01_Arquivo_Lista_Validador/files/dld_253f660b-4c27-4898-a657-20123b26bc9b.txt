@@ -1,0 +1,15 @@
+tbxFirstName=aaa
+tbxLastName=
+tbxTitle=
+tbxEmail=
+tbxCompany=
+tbxAddress1=
+tbxAddress2=
+tbxCity=
+tbxPostalCode=
+tbxTelephone=
+tbxFax=
+tbxURL=
+ddlCountry=Brazil
+ddlState=RIO GRANDE DO NORTE
+cbxFreeStuff=True

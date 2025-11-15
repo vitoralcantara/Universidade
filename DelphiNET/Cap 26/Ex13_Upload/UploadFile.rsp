@@ -1,0 +1,3 @@
+/utf8output
+/out:.\bin\UploadFile.dll
+ /res:"C:\DelphiNET\Cap 26\Ex13_Upload\WebForm1.TWebForm1.resources"

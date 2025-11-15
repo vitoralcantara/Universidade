@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<nodeSet>
+  <view uin="n01e3v0x6u4ikif">
+    <property name="$name" value="default" />
+    <property name="$metaclass" value="Package Diagram" />
+  </view>
+</nodeSet>

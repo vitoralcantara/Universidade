@@ -1,0 +1,15 @@
+tbxFirstName=Azevedo
+tbxLastName=Azevedo
+tbxTitle=Azevedo
+tbxEmail=Azevedo
+tbxCompany=Azevedo
+tbxAddress1=Azevedo
+tbxAddress2=Azevedo
+tbxCity=Azevedo
+tbxPostalCode=Azevedo
+tbxTelephone=Azevedo
+tbxFax=Azevedo
+tbxURL=Azevedo
+ddlCountry=Brazil
+ddlState=RIO GRANDE DO NORTE
+cbxFreeStuff=True

@@ -1,0 +1,223 @@
+
+unit DwnLdForm;
+
+interface
+
+uses
+  System.Collections, System.ComponentModel,
+  System.Data, System.Drawing, System.Web, System.Web.SessionState,
+  System.Web.UI, System.Web.UI.WebControls, System.Web.UI.HtmlControls,
+  System.IO, System.Web.Mail;
+
+type
+  TWebForm1 = class(System.Web.UI.Page)
+  {$REGION 'Designer Managed Code'}
+  strict private
+    procedure InitializeComponent;
+    procedure btnSubmit_Click(sender: System.Object; e: System.EventArgs);
+  {$ENDREGION}
+  strict private
+    procedure Page_Load(sender: System.Object; e: System.EventArgs);
+  strict protected
+{$REGION 'Controls'}
+    Label1: System.Web.UI.WebControls.Label;
+    Label4: System.Web.UI.WebControls.Label;
+    tbxFirstName: System.Web.UI.WebControls.TextBox;
+    RequiredFieldValidator1: System.Web.UI.WebControls.RequiredFieldValidator;
+    Label5: System.Web.UI.WebControls.Label;
+    tbxLastName: System.Web.UI.WebControls.TextBox;
+    RequiredFieldValidator2: System.Web.UI.WebControls.RequiredFieldValidator;
+    Label6: System.Web.UI.WebControls.Label;
+    tbxTitle: System.Web.UI.WebControls.TextBox;
+    Label7: System.Web.UI.WebControls.Label;
+    tbxEmail: System.Web.UI.WebControls.TextBox;
+    RequiredFieldValidator3: System.Web.UI.WebControls.RequiredFieldValidator;
+    RegularExpressionValidator1: System.Web.UI.WebControls.RegularExpressionValidator;
+    Label8: System.Web.UI.WebControls.Label;
+    tbxCompany: System.Web.UI.WebControls.TextBox;
+    Label9: System.Web.UI.WebControls.Label;
+    tbxAddress1: System.Web.UI.WebControls.TextBox;
+    Label10: System.Web.UI.WebControls.Label;
+    tbxAddress2: System.Web.UI.WebControls.TextBox;
+    Label11: System.Web.UI.WebControls.Label;
+    tbxCity: System.Web.UI.WebControls.TextBox;
+    Label12: System.Web.UI.WebControls.Label;
+    ddlState: System.Web.UI.WebControls.DropDownList;
+    Label13: System.Web.UI.WebControls.Label;
+    tbxPostalCode: System.Web.UI.WebControls.TextBox;
+    Label14: System.Web.UI.WebControls.Label;
+    ddlCountry: System.Web.UI.WebControls.DropDownList;
+    Label15: System.Web.UI.WebControls.Label;
+    tbxTelephone: System.Web.UI.WebControls.TextBox;
+    Label16: System.Web.UI.WebControls.Label;
+    tbxFax: System.Web.UI.WebControls.TextBox;
+    Label17: System.Web.UI.WebControls.Label;
+    tbxURL: System.Web.UI.WebControls.TextBox;
+    cbxFreeStuff: System.Web.UI.WebControls.CheckBox;
+    btnSubmit: System.Web.UI.WebControls.Button;
+    Label2: System.Web.UI.WebControls.Label;
+    TextBox1: System.Web.UI.WebControls.TextBox;
+    RequiredFieldValidator4: System.Web.UI.WebControls.RequiredFieldValidator;
+    RegularExpressionValidator2: System.Web.UI.WebControls.RegularExpressionValidator;
+    DropDownList1: System.Web.UI.WebControls.DropDownList;
+{$ENDREGION}
+    procedure OnInit(e: EventArgs); override;
+    procedure SendEmail(aEmail: String);
+  private
+    { Private Declarations }
+    procedure SaveUserInfo;
+    procedure PopulateDdlFromFile(aDDL: DropDownList; aFileName: String);
+  public
+    { Public Declarations }
+  end;
+
+implementation
+
+{$REGION 'Designer Managed Code'}
+/// <summary>
+/// Required method for Designer support -- do not modify
+/// the contents of this method with the code editor.
+/// </summary>
+procedure TWebForm1.InitializeComponent;
+begin
+  Include(Self.btnSubmit.Click, Self.btnSubmit_Click);
+  Include(Self.Load, Self.Page_Load);
+end;
+{$ENDREGION}
+
+// Primeiro procedimento executado
+procedure TWebForm1.OnInit(e: EventArgs);
+begin
+  InitializeComponent;
+  inherited OnInit(e);
+  // Carrega DropDownList a partir de um arquivo texto
+  PopulateDdlFromFile(ddlCountry,
+    Request.PhysicalApplicationPath+'countries.txt');
+  ddlCountry.Items.FindByText('Brazil').Selected := True; //Seleciona pelo Texto
+  // Carrega DropDownList a partir de um arquivo texto
+  PopulateDdlFromFile(ddlState,
+    Request.PhysicalApplicationPath+'states.txt');
+  ddlState.Items.FindByValue('RN').Selected := True;      //Seleciona pelo Codigo
+  //ddlState.Items.FindByText('RIO GRANDE DO NORTE').Selected := True;
+end;
+
+// Segundo procedimento executado
+procedure TWebForm1.Page_Load(sender: System.Object; e: System.EventArgs);
+begin
+  if IsPostBack then
+  begin
+    SaveUserInfo;
+    SendEMail(tbxEmail.Text);
+    Response.Redirect('ThankYouForm.aspx');
+  end;
+end;
+
+procedure TWebForm1.SaveUserInfo;
+const
+  fname = '.\files\dld_{0}.txt';
+var
+  filename : string;
+  fs: FileStream;
+  sw: StreamWriter;
+begin
+  filename := System.String.Format(fname, [System.Guid.NewGuid.ToString]);
+  fs := FileStream.Create(Server.MapPath(filename), FileMode.Append,
+     FileAccess.Write);
+  try
+    sw := StreamWriter.Create(fs);
+    try
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxFirstName.ID,
+        tbxFirstName.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxLastName.ID,
+        tbxLastName.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxTitle.ID,
+        tbxTitle.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxEmail.ID,
+        tbxEmail.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxCompany.ID,
+        tbxCompany.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxAddress1.ID,
+        tbxAddress1.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxAddress2.ID,
+        tbxAddress2.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxCity.ID,
+        tbxCity.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxPostalCode.ID,
+        tbxPostalCode.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxTelephone.ID,
+        tbxTelephone.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxFax.ID,
+        tbxFax.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [tbxURL.ID,
+        tbxURL.Text]));
+      if ddlCountry.SelectedIndex >= 0 then
+        sw.WriteLine(System.String.Format('{0}={1}', [ddlCountry.ID,
+          ddlCountry.Items[ddlCountry.SelectedIndex]]));
+      if ddlState.SelectedIndex >= 0 then
+        sw.WriteLine(System.String.Format('{0}={1}', [ddlState.ID,
+          ddlState.Items[ddlState.SelectedIndex]]));
+      sw.WriteLine(System.String.Format('{0}={1}', [cbxFreeStuff.ID,
+        cbxFreeStuff.Checked.ToString]));
+    finally
+      sw.Close;
+    end;
+  finally
+    fs.Close;
+  end;
+end;
+
+procedure TWebForm1.PopulateDdlFromFile(aDDL: DropDownList; aFileName: String);
+var
+  sr: StreamReader;
+  FileLine: array of String;
+  NameStr: String;
+  ValueStr: String;
+begin
+  if System.IO.File.Exists(aFileName) then
+  begin
+    sr := StreamReader.Create(System.IO.File.OpenRead(aFileName));
+    try
+      while sr.Peek > -1 do
+      begin
+        FileLine := sr.ReadLine.Split(['=']);
+        NameStr   := FileLine[0];
+        ValueStr  := FileLine[1];
+        aDDL.Items.Add(ListItem.Create(ValueStr, NameStr));
+      end;
+    finally
+      sr.Close;
+    end;
+  end;
+end;
+
+procedure TWebForm1.btnSubmit_Click(sender: System.Object; e: System.EventArgs);
+begin
+
+end;
+
+procedure TWebForm1.SendEmail(aEmail: &String);
+var
+  MailMsg: MailMessage;
+  sr: StreamReader;
+begin
+  MailMsg := MailMessage.Create;
+  MailMsg.From    := 'info@xapware.com';
+  MailMsg.&To      := aEmail;
+  MailMsg.Bcc     := 'sales@somehwere.com';
+  MailMsg.Subject := 'Your request to download XYZ Product';
+  MailMsg.BodyFormat := MailFormat.HTML;
+
+  sr := StreamReader.Create(System.IO.File.OpenRead(
+    Request.PhysicalApplicationPath+'dnloadmail.htm'));
+  try
+    MailMsg.Body := sr.ReadToEnd;
+  finally
+    sr.Close;
+  end;
+
+  SmtpMail.SmtpServer := 'localhost';
+  SmtpMail.Send(MailMsg);
+end;
+
+end.
+

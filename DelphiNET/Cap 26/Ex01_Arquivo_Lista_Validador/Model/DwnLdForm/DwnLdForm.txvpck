@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<nodeSet>
+  <view uin="l35y20lzm">
+    <property name="$name" value="DwnLdForm" />
+    <property name="$metaclass" value="Package Diagram" />
+    <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.InitializeComponent" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Button1_Click" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Page_Load" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label1" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label2" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label3" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label4" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label5" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label6" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label7" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label8" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label9" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label10" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label11" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label12" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label13" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label14" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label15" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label16" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Label17" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox1" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox2" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox3" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox4" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox5" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox6" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox7" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox8" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox10" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox12" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox13" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.TextBox14" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.DropDownList1" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.DropDownList2" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.CheckBox1" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.Button1" />
+      <reference referencedUin="source:DnldReqApp:DwnLdForm.TWebForm1.OnInit" />
+    </reference>
+  </view>
+</nodeSet>

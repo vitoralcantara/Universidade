@@ -1,0 +1,2 @@
+Hello Delphi for .NET
+Delphi for .NET Developer's Guide

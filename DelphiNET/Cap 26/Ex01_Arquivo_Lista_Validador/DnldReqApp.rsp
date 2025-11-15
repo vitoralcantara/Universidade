@@ -1,0 +1,4 @@
+/utf8output
+/out:.\bin\DnldReqApp.dll
+ /res:"G:\DelphiNET\Cap 26\Ex01_Arquivo_Lista_Validador\DwnLdForm.TWebForm1.resources"
+ /res:"G:\DelphiNET\Cap 26\Ex01_Arquivo_Lista_Validador\ThankYouForm.TWebForm2.resources"
