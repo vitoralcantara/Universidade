@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/06/03 15:00:08.218.aspx,C:\Documents and Settings\aluno\Desktop\Lista1Entregar\WebForm1.aspx=C:\Documents and Settings\aluno\Desktop\Lista1Entregar\VisualizaVeiculo.aspx</Transaction>
+    <Transaction>2008/06/03 15:00:08.234.pas,C:\Documents and Settings\aluno\Desktop\Lista1Entregar\WebForm1.pas=C:\Documents and Settings\aluno\Desktop\Lista1Entregar\VisualizaVeiculo.pas</Transaction>
+    <Transaction>2008/06/03 15:00:08.265.aspx,C:\Documents and Settings\aluno\Desktop\Lista1Entregar\WebForm1.aspx=C:\Documents and Settings\aluno\Desktop\Lista1Entregar\VisualizaVeiculo.aspx</Transaction>
+    <Transaction>2008/06/03 15:00:08.265.pas,C:\Documents and Settings\aluno\Desktop\Lista1Entregar\WebForm1.pas=C:\Documents and Settings\aluno\Desktop\Lista1Entregar\VisualizaVeiculo.pas</Transaction>
+    <Transaction>2008/06/03 15:00:19.640.aspx,C:\Documents and Settings\aluno\Desktop\Lista1Entregar\WebForm2.aspx=C:\Documents and Settings\aluno\Desktop\Lista1Entregar\CadastroVeiculo.aspx</Transaction>
+    <Transaction>2008/06/03 15:00:19.640.pas,C:\Documents and Settings\aluno\Desktop\Lista1Entregar\WebForm2.pas=C:\Documents and Settings\aluno\Desktop\Lista1Entregar\CadastroVeiculo.pas</Transaction>
+    <Transaction>2008/06/03 15:00:19.671.aspx,C:\Documents and Settings\aluno\Desktop\Lista1Entregar\WebForm2.aspx=C:\Documents and Settings\aluno\Desktop\Lista1Entregar\CadastroVeiculo.aspx</Transaction>
+    <Transaction>2008/06/03 15:00:19.671.pas,C:\Documents and Settings\aluno\Desktop\Lista1Entregar\WebForm2.pas=C:\Documents and Settings\aluno\Desktop\Lista1Entregar\CadastroVeiculo.pas</Transaction>
+    <Transaction>2008/06/03 16:29:24.171.xml,C:\Documents and Settings\aluno\Desktop\Lista1Entregar\Untitled1.xml=C:\Documents and Settings\aluno\Desktop\Lista1Entregar\Propaganda.xml</Transaction>
+    <Transaction>2008/06/14 17:07:03.421.aspx,C:\Vítor\CEFET-RN\WEB\Lista1Entregar\WebForm1.aspx=C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThanYouForm.aspx</Transaction>
+    <Transaction>2008/06/14 17:07:03.437.pas,C:\Vítor\CEFET-RN\WEB\Lista1Entregar\WebForm1.pas=C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThanYouForm.pas</Transaction>
+    <Transaction>2008/06/14 17:07:03.468.aspx,C:\Vítor\CEFET-RN\WEB\Lista1Entregar\WebForm1.aspx=C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThanYouForm.aspx</Transaction>
+    <Transaction>2008/06/14 17:07:03.468.pas,C:\Vítor\CEFET-RN\WEB\Lista1Entregar\WebForm1.pas=C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThanYouForm.pas</Transaction>
+    <Transaction>2008/06/14 17:14:07.875.aspx,C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThanYouForm.aspx=C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThankYouForm.aspx</Transaction>
+    <Transaction>2008/06/14 17:14:07.875.pas,C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThanYouForm.pas=C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThankYouForm.pas</Transaction>
+    <Transaction>2008/06/14 17:14:07.906.aspx,C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThanYouForm.aspx=C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThankYouForm.aspx</Transaction>
+    <Transaction>2008/06/14 17:14:07.906.pas,C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThanYouForm.pas=C:\Vítor\CEFET-RN\WEB\Lista1Entregar\ThankYouForm.pas</Transaction>
+    <Transaction>2004/06/01 00:29:32.968.aspx,C:\Vítor\CEFET-RN\WEB\Lista1Entregar\VisualizaVeiculo.aspx=</Transaction>
+  </Transactions>
+</BorlandProject>

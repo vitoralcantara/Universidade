@@ -1,0 +1,176 @@
+
+unit WebForm1;
+
+interface
+
+uses
+  System.Collections, System.ComponentModel,
+  System.Data, System.Drawing, System.Web, System.Web.SessionState,
+  System.Web.UI, System.Web.UI.WebControls, System.Web.UI.HtmlControls;
+
+type
+  TWebForm1 = class(System.Web.UI.Page)
+  {$REGION 'Designer Managed Code'}
+  strict private
+    procedure InitializeComponent;
+    procedure Button1_Click(sender: System.Object; e: System.EventArgs);
+    procedure ImageButton1_Click(sender: System.Object; e: System.Web.UI.ImageClickEventArgs);
+    procedure Button1_Click1(sender: System.Object; e: System.EventArgs);
+   // procedure ListBox1_SelectedIndexChanged(sender: System.Object; e: System.EventArgs);
+    //procedure Button1_Click(sender: System.Object; e: System.EventArgs);
+  {$ENDREGION}
+  strict private
+    procedure Page_Load(sender: System.Object; e: System.EventArgs);
+  strict protected
+    Label8: System.Web.UI.WebControls.Label;
+    Label1: System.Web.UI.WebControls.Label;
+    TxbNome: System.Web.UI.WebControls.TextBox;
+    Label2: System.Web.UI.WebControls.Label;
+    TxbFabricante: System.Web.UI.WebControls.TextBox;
+    Label6: System.Web.UI.WebControls.Label;
+    TxbAno: System.Web.UI.WebControls.TextBox;
+    Label3: System.Web.UI.WebControls.Label;
+    TxbValordeVenda: System.Web.UI.WebControls.TextBox;
+    Label4: System.Web.UI.WebControls.Label;
+    TxbProprietario: System.Web.UI.WebControls.TextBox;
+    Label5: System.Web.UI.WebControls.Label;
+    TxbTelefone: System.Web.UI.WebControls.TextBox;
+    ListBox1: System.Web.UI.WebControls.ListBox;
+    Image1: System.Web.UI.WebControls.Image;
+    Label7: System.Web.UI.WebControls.Label;
+    Label9: System.Web.UI.WebControls.Label;
+    AdRotator1: System.Web.UI.WebControls.AdRotator;
+    ButtonVerInfo: System.Web.UI.WebControls.Button;
+    ImageButton1: System.Web.UI.WebControls.ImageButton;
+    Button1: System.Web.UI.WebControls.Button;
+    procedure OnInit(e: EventArgs); override;
+  private
+    { Private Declarations }
+  public
+    { Public Declarations }
+  end;
+
+implementation
+uses System.IO, System.Drawing.Imaging;
+
+{$REGION 'Designer Managed Code'}
+/// <summary>
+/// Required method for Designer support -- do not modify
+/// the contents of this method with the code editor.
+/// </summary>
+procedure TWebForm1.InitializeComponent;
+begin
+  Include(Self.ListBox1.SelectedIndexChanged, Self.Page_Load);
+  Include(Self.ImageButton1.Click, Self.ImageButton1_Click);
+  Include(Self.ButtonVerInfo.Click, Self.Button1_Click);
+  Include(Self.Button1.Click, Self.Button1_Click1);
+  Include(Self.Load, Self.Page_Load);
+end;
+{$ENDREGION}
+
+procedure TWebForm1.Page_Load(sender: System.Object; e: System.EventArgs);
+begin
+  // TODO: Put user code to initialize the page here
+  if ListBox1.AutoPostBack then
+  begin
+    ImageButton1.ImageUrl:= 'images/a.JPG';
+  TxbNome.Text         := 'Siena';
+  TxbFabricante.Text   := 'Fiat';
+  TxbAno.Text          := '2007';
+  TxbValordeVenda.Text := 'R$30.000';
+  TxbProprietario.Text := 'Meine & Nildo';
+  TxbTelefone.Text     := '32085117';
+  end;
+
+
+
+end;
+
+procedure TWebForm1.OnInit(e: EventArgs);
+begin
+  //
+  // Required for Designer support
+  //
+  InitializeComponent;
+  inherited OnInit(e);
+
+end;
+
+procedure TWebForm1.Button1_Click1(sender: System.Object; e: System.EventArgs);
+begin
+  Response.Redirect('CadastroVeiculo.aspx');
+end;
+
+procedure TWebForm1.ImageButton1_Click(sender: System.Object; e: System.Web.UI.ImageClickEventArgs);
+var
+fName : String;
+begin
+fName := ImageButton1.ImageUrl;
+Response.Redirect(fName);
+
+
+end;
+
+(*procedure TWebForm1.Button1_Click(sender: System.Object; e: System.EventArgs);
+begin
+if Listbox1.Items.Item[0].Selected then
+  begin
+  ImageButton1.ImageUrl:= 'images/a.JPG';
+  TxbNome.Text         := 'Siena';
+  TxbFabricante.Text   := 'Fiat';
+  TxbAno.Text          := '2007';
+  TxbValordeVenda.Text := 'R$30.000';
+  TxbProprietario.Text := 'Meine & Nildo';
+  TxbTelefone.Text     := '32085117';
+  end;
+  if Listbox1.Items.Item[1].Selected then
+  begin
+  ImageButton1.ImageUrl      := 'images/b.JPG';
+  TxbNome.Text         := 'Celta';
+  TxbFabricante.Text   := 'Chevrolet';
+  TxbAno.Text          := '2007';
+  TxbValordeVenda.Text := 'R$24.000';
+  TxbProprietario.Text := 'Jussara Paiva';
+  TxbTelefone.Text     := '36082520';
+   end;
+   if Listbox1.Items.Item[2].Selected then
+  begin
+  ImageButton1.ImageUrl      := 'images/j.JPG';
+  TxbNome.Text         := 'Palio';
+  TxbFabricante.Text   := 'Fiat';
+  TxbAno.Text          := '2007';
+  TxbValordeVenda.Text := 'R$25.000';
+  TxbProprietario.Text := 'Ocimar Alcântara';
+  TxbTelefone.Text     := '32173060';
+end;
+if Listbox1.Items.Item[3].Selected then
+  begin
+  ImageButton1.ImageUrl      := 'images/m.JPG';
+  TxbNome.Text         := 'Gol';
+  TxbFabricante.Text   := 'Volkswagen';
+  TxbAno.Text          := '2007';
+  TxbValordeVenda.Text := 'R$24.000';
+  TxbProprietario.Text := 'Miguel Neto';
+  TxbTelefone.Text     := '32178718';
+  end;
+
+  if Listbox1.Items.Item[4].Selected then
+  begin
+  ImageButton1.ImageUrl      := 'images/Siena.JPG';
+  TxbNome.Text         := 'S-10';
+  TxbFabricante.Text   := 'Chevrolet';
+  TxbAno.Text          := '2005';
+  TxbValordeVenda.Text := 'R$85.000';
+  TxbProprietario.Text := 'Carinha Rico';
+  TxbTelefone.Text     := '66669999';
+  end;
+
+
+
+
+
+
+
+   end;                                         *)
+end.
+

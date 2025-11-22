@@ -1,0 +1,73 @@
+<%@ Page language="c#" Debug="true" Codebehind="VisualizaVeiculo.pas" AutoEventWireup="false" Inherits="VisualizaVeiculo.TWebForm1" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <title></title>
+  </head>
+
+  <body>
+     <form runat="server">
+      <p>
+      </p>
+      
+      <ASP:Panel id="Panel1" runat="server" width="553px" height="236px">
+        <P>&nbsp;</P></ASP:Panel>
+      <table cellspacing="1" cellpadding="1" width="300" border="1">
+          <tr>
+            <td>
+              <ASP:Label id="Label8" runat="server">Foto:</ASP:Label></td>
+            <td>
+              <ASP:Image id="Image2" runat="server"></ASP:Image></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <ASP:Label id="Label1" runat="server">Nome:</ASP:Label></td>
+            <td>
+              <ASP:TextBox id="TextBox1" runat="server"></ASP:TextBox></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <ASP:Label id="Label2" runat="server">Fabricante:</ASP:Label></td>
+            <td>
+              <ASP:TextBox id="TextBox2" runat="server"></ASP:TextBox></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <ASP:Label id="Label3" runat="server">Valor de Venda:</ASP:Label></td>
+            <td>
+              <ASP:TextBox id="TextBox3" runat="server"></ASP:TextBox></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <ASP:Label id="Label4" runat="server">Nome do Proprietário:</ASP:Label></td>
+            <td>
+              <ASP:TextBox id="TextBox4" runat="server"></ASP:TextBox></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <ASP:Label id="Label5" runat="server">Telefone de Contato:</ASP:Label></td>
+            <td>
+              <ASP:TextBox id="TextBox5" runat="server"></ASP:TextBox></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+      </table>
+      <ASP:Button id="Button1" runat="server" text="Ir para página de Cadastro"></ASP:Button>
+     </form>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<%@ Page language="c#" Debug="true" Codebehind="CadastroVeiculo.pas" AutoEventWireup="false" Inherits="CadastroVeiculo.TWebForm2" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+	<title></title>
+	<script runat="server">
+	void btnSubmit_Click(Object sender, EventArgs e){
+	String fName = System.IO.Path.GetFileName(UpFile.PostedFile.FileName);
+	String pName = Server.MapPath(System.String.Format(".\\Files\\{0}", fName));
+	UpFile.PostedFile.SaveAs(pName);
+	Response.Write(pName);
+	
+
+
+  }
+</script>
+  </head>
+  <body>
+	<form runat="server">
+      <table cellspacing="1" cellpadding="1" width="817" border="1" style="WIDTH: 817px; HEIGHT: 84px">
+          <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;
+              <ASP:Image id="Image1" runat="server" width="150px" height="150px" imageurl="images/m.JPG" imagealign="Left"></ASP:Image>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+              <p>
+                <ASP:Label id="Label8" runat="server">O Os Carrões do Ano Meu Fiii!!</ASP:Label>
+              </p>
+              <p>&nbsp; 
+                <ASP:Label id="Label9" runat="server">Propaganda de Veículos pela Internet</ASP:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              
+              </p></td>
+            <td>
+              <ASP:AdRotator id="AdRotator1" runat="server" width="468px" height="60px" advertisementfile="Propaganda.xml" keywordfilter="Imagem GIF"></ASP:AdRotator></td>
+          </tr>
+      </table>
+      <p></p>
+      <p></p>
+      <table cellspacing="1" cellpadding="1" width="300" border="1">
+        <tr>
+          <td>
+            <asp:label id="Label1" runat="server">
+              Nome:
+            </asp:label>
+          </td>
+          <td>
+            <asp:textbox id="TxbNome" runat="server" width="256px">
+            </asp:textbox>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id="Label2" runat="server">
+              Fabricante:
+            </asp:label>
+          </td>
+          <td>
+            <asp:textbox id="TxbFabricante" runat="server" width="256px">
+            </asp:textbox>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id="Label3" runat="server">
+              Ano:
+            </asp:label>
+          </td>
+          <td>
+              <ASP:TextBox id="TxbAno" runat="server" width="256px"></ASP:TextBox></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id="Label4" runat="server">
+              Valor de Venda:
+            </asp:label>
+          </td>
+          <td>
+            <asp:textbox id="TxbValordeVenda" runat="server" width="256px">
+            </asp:textbox>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id="Label5" runat="server">
+              Nome do Proprietário:
+            </asp:label>
+          </td>
+          <td>
+            <asp:textbox id="TxbProprietario" runat="server" width="256px">
+            </asp:textbox>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <asp:label id="Label6" runat="server">
+              Telefone de Contato:
+            </asp:label>
+          </td>
+          <td>
+            <asp:textbox id="TxbTelefone" runat="server" width="256px">
+            </asp:textbox>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td style="HEIGHT: 71px">
+            <asp:label id="Label7" runat="server">
+              Carregar Imagem do Veículo:
+            </asp:label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+          <td style="HEIGHT: 71px">
+            <p>
+			  <input id="UpFile" type="file" name="UpFile" runat="server" style="WIDTH: 352px; HEIGHT: 22px" size="21">
+
+			<asp:button id="Button2"
+			onclick="btnSubmit_Click"  runat="server" text="Enviar Arquivo">
+			</asp:button>
+			  </p>
+            <p>
+                <ASP:TextBox id="Txbd" runat="server" width="339px"></ASP:TextBox>
+			  </p>
+          </td>
+          <td style="HEIGHT: 71px"></td>
+        </tr>
+        <tr>
+          <td>
+            <asp:checkbox id="CBPermitEnvio" runat="server" text="Permitir o Envio de Informações?"></asp:checkbox>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <asp:button id="btn_Submit" runat="server" text="Submeter">
+            </asp:button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:button id="Button1" runat="server" text="Cancelar">
+            </asp:button>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <asp:button id="Button3" runat="server" text="Button"></asp:button>
+    </form>
+  </body>
+</html>

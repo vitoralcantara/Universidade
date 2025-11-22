@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Advertisements>
+  <Ad>
+	<ImageUrl>images\a.jpg</ImageUrl>
+	<NavigateUrl>http://www.autobraz.com.br</NavigateUrl>
+	<AlternateText>AutoBraz</AlternateText>
+	<Keyword>Imagem GIF</Keyword>
+	<Impressions>10</Impressions>
+  </Ad>
+  <Ad>
+	<ImageUrl>images\b.jpg</ImageUrl>
+	<NavigateUrl>http://www.chevrolet.com.br/</NavigateUrl>
+	<AlternateText>Chevrolet</AlternateText>
+	<Keyword>Imagem GIF</Keyword>
+	<Impressions>10</Impressions>
+  </Ad>
+  <Ad>
+	<ImageUrl>images\j.jpg</ImageUrl>
+	<NavigateUrl>http://www.redencaorenault.com.br/</NavigateUrl>
+	<AlternateText>Rendencao</AlternateText>
+	<Keyword>Imagem GIF</Keyword>
+	<Impressions>10</Impressions>
+  </Ad>
+  <Ad>
+	<ImageUrl>images\z.jpg</ImageUrl>
+	<NavigateUrl>http://www.kiamotors.com.br/</NavigateUrl>
+	<AlternateText>KiaMotors</AlternateText>
+	<Keyword>Imagem GIF</Keyword>
+	<Impressions>10</Impressions>
+  </Ad>
+  <Ad>
+	<ImageUrl>images\m.jpg</ImageUrl>
+	<NavigateUrl>http://www.toyotapb.com.br/</NavigateUrl>
+	<AlternateText>Toyota</AlternateText>
+	<Keyword>imagens\Imagem GIF</Keyword>
+	<Impressions>10</Impressions>
+  </Ad>
+</Advertisements>

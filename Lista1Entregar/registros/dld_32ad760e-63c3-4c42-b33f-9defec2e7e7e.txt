@@ -1,0 +1,9 @@
+TxbNome=Focus
+TxbFabricante=Ford
+TxbAno=2006
+TxbValordeVenda=R$40.000,00
+TxbProprietario=Vitor Alcantara
+TxbTelefone=32085447
+Txbd=C:\Documents and Settings\Administrador\Desktop\Joe & Mac.7z
+CBPermitEnvio=False
+Codigo Imagem=False

@@ -1,0 +1,144 @@
+
+unit CadastroVeiculo;
+
+interface
+
+uses
+  System.Collections, System.ComponentModel,
+  System.Data, System.Drawing, System.Web, System.Web.SessionState,
+  System.Web.UI, System.Web.UI.WebControls, System.Web.UI.HtmlControls,
+  System.IO, System.Web.Mail;
+
+type
+  TWebForm2 = class(System.Web.UI.Page)
+  {$REGION 'Designer Managed Code'}
+  strict private
+    procedure InitializeComponent;
+    procedure Button3_Click(sender: System.Object; e: System.EventArgs);
+    procedure btn_Submit_Click(sender: System.Object; e: System.EventArgs);
+    procedure Button2_Click(sender: System.Object; e: System.EventArgs);
+  {$ENDREGION}
+  strict private
+    procedure Page_Load(sender: System.Object; e: System.EventArgs);
+  strict protected
+    Label1: System.Web.UI.WebControls.Label;
+    Label2: System.Web.UI.WebControls.Label;
+    Label3: System.Web.UI.WebControls.Label;
+    Label4: System.Web.UI.WebControls.Label;
+    Label5: System.Web.UI.WebControls.Label;
+    Label6: System.Web.UI.WebControls.Label;
+    btn_Submit: System.Web.UI.WebControls.Button;
+    Button1: System.Web.UI.WebControls.Button;
+    CBPermitEnvio: System.Web.UI.WebControls.CheckBox;
+    TxbNome: System.Web.UI.WebControls.TextBox;
+    TxbFabricante: System.Web.UI.WebControls.TextBox;
+    TxbValordeVenda: System.Web.UI.WebControls.TextBox;
+    TxbProprietario: System.Web.UI.WebControls.TextBox;
+    TxbTelefone: System.Web.UI.WebControls.TextBox;
+    Label7: System.Web.UI.WebControls.Label;
+    Button2: System.Web.UI.WebControls.Button;
+    Button3: System.Web.UI.WebControls.Button;
+    Image1: System.Web.UI.WebControls.Image;
+    Label8: System.Web.UI.WebControls.Label;
+    Label9: System.Web.UI.WebControls.Label;
+    AdRotator1: System.Web.UI.WebControls.AdRotator;
+    TxbAno: System.Web.UI.WebControls.TextBox;
+    UpFile: System.Web.UI.HtmlControls.HtmlInputFile;
+    Txbd: System.Web.UI.WebControls.TextBox;
+    procedure OnInit(e: EventArgs); override;
+  private
+    { Private Declarations }
+    procedure SaveUserInfo;
+  public
+    { Public Declarations }
+  end;
+
+implementation
+
+{$REGION 'Designer Managed Code'}
+/// <summary>
+/// Required method for Designer support -- do not modify
+/// the contents of this method with the code editor.
+/// </summary>
+procedure TWebForm2.InitializeComponent;
+begin
+  Include(Self.Button2.Click, Self.Button2_Click);
+  Include(Self.btn_Submit.Click, Self.btn_Submit_Click);
+  Include(Self.Button3.Click, Self.Button3_Click);
+  Include(Self.Load, Self.Page_Load);
+end;
+{$ENDREGION}
+
+procedure TWebForm2.Page_Load(sender: System.Object; e: System.EventArgs);
+begin
+
+  // TODO: Put user code to initialize the page here
+end;
+
+procedure TWebForm2.SaveUserInfo;
+const
+  fname = '.\registros\dld_{0}.txt';
+var
+  filename, path : string;
+  fs: FileStream;
+  sw: StreamWriter;
+begin
+  filename := System.String.Format(fname, [System.Guid.NewGuid.ToString]);
+  path := Server.MapPath(filename);
+  fs := FileStream.Create(path, FileMode.Append, FileAccess.Write);
+  try
+    sw := StreamWriter.Create(fs);
+    try
+      sw.WriteLine(System.String.Format('{0}={1}', [TxbNome.ID,
+        TxbNome.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [TxbFabricante.ID,
+        TxbFabricante.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [TxbAno.ID,
+        TxbAno.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [TxbValordeVenda.ID,
+        TxbValordeVenda.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [TxbProprietario.ID,
+        TxbProprietario.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [TxbTelefone.ID,
+        TxbTelefone.Text]));
+      sw.WriteLine(System.String.Format('{0}={1}', [CBPermitEnvio.ID,
+        CBPermitEnvio.Checked.ToString]));
+    finally
+    sw.Close;
+
+    end;
+  finally
+  fs.Close;
+
+  end;
+
+end;
+
+procedure TWebForm2.Button2_Click(sender: System.Object; e: System.EventArgs);
+begin
+  Txbd.Text := ('casa');
+end;
+
+procedure TWebForm2.btn_Submit_Click(sender: System.Object; e: System.EventArgs);
+begin
+  SaveUserInfo;
+  Response.Redirect('ThankYouForm.aspx');
+
+end;
+
+procedure TWebForm2.OnInit(e: EventArgs);
+begin
+  //
+  // Required for Designer support
+  //
+  InitializeComponent;
+  inherited OnInit(e);
+end;
+
+procedure TWebForm2.Button3_Click(sender: System.Object; e: System.EventArgs);
+begin
+  Response.Redirect('VisualizaVeiculo.aspx');
+end;
+
+end.
+
